@@ -7,27 +7,26 @@ Mockup: [design/mockup.html](../design/mockup.html). The decision IDs (D1 to D6)
 - D1: both popover layouts, list and grid. A setting and a button in the popover header switch them. List is the default.
 - D2: screenshot pixels by default.
 - D3: macOS 14.
-- D4: open source under the MIT license and free. The signed and notarized DMG is on GitHub Releases, and the Sparkle feed is on GitHub Pages (`https://zirkelc.github.io/16to9/appcast.xml`). Reason: users must give the app the Accessibility permission, and the source code lets them check what the app does with it. The audience (people who make screenshots and videos) is small, and a license check, a trial and a payment provider add more work than the sales would pay for.
+- D4: open source under the MIT license and free. The signed and notarized DMG is on GitHub Releases, and each release also has the Sparkle feed. The apps read it from `https://github.com/zirkelc/16to9/releases/latest/download/appcast.xml`, which always points to the newest release. Reason: users must give the app the Accessibility permission, and the source code lets them check what the app does with it. The audience (people who make screenshots and videos) is small, and a license check, a trial and a payment provider add more work than the sales would pay for.
 - D5: name 16to9 (before: Fitframe), bundle ID `dev.zirkelc.16to9`. A Swift module name cannot start with a digit, so the Xcode target and the module are `SixteenToNine`. Quick check on 2026-11-11: no app with this name in the App Store, the GitHub name is free, and 16to9.app, 16to9.io and get16to9.com are free. 16to9.com is registered. Rejected names: Superframe (superframe.app is an AI video and aspect-ratio tool, superframe.com a funded company) and Golden Ratio (Goldie, a Mac golden-ratio overlay app). Not checked: trademarks and the X handle.
 - D7: distribution outside the Mac App Store, as a DMG signed with Developer ID and notarized by Apple. Updates with Sparkle. Reason: the App Sandbox blocks the Accessibility API for other apps (see "Window control"), and the Shortcuts workaround needs too much setup for the user.
 - D6: logo and colors. The app icon is a navy blueprint tile with two white rulers (numbered 0 to 16 and 0 to 9) and a 16:9 window in an amber frame. The wordmark uses JetBrains Mono (SIL Open Font License) as paths. Each "16to9" in the app uses the same style: JetBrains Mono ExtraBold (bundled in the app), with "to" in amber (`#D98C00` on a light background, for contrast). Colors: navy `#2350A0` (tile and primary), dark `#0A1C45`, amber `#FFB547` (guide frame and onboarding buttons), white rulers. The source SVG files are in `design/logos/final/`. Amber is the default guide color. An edge that is not at its target is red, so that it differs from the amber guide (orange when the guide is pink).
 
 ## Status
 
-Milestones 1 to 7 are done. Milestone 8 is done in part (no sandbox, Sparkle with its public key and feed URL, release script, CI and Pages workflows). Checked on this Mac:
+Milestones 1 to 7 are done. Milestone 8 is done in part (no sandbox, Sparkle with its public key and feed URL, release script, CI workflow). Checked on this Mac:
 
-- 57 unit tests in `ResizerCore` pass.
+- 60 unit tests in `ResizerCore` pass.
 - Debug and Release builds have no warnings.
 - The app, started with `open` and with its own Accessibility permission, resized a test window to 16:9 and to 1920 × 1080. Snap moved it exactly into the guide (all edges green).
+- On a screen with scale 2 (the built-in Retina screen), Snap moved a window exactly into the guide (all edges green), and the menu shows sharp.
 - macOS returns no image of the guide panels in screen captures while "Hide the guide in screenshots" is on.
 - German: all UI texts and the social preset names have a translation. The popover, all settings panes, the onboarding window and the guide bar were checked in German.
 - `scripts/release.sh` archives the app and exports it with the Developer ID certificate (hardened runtime, no entitlements, `codesign --verify --deep --strict` passes). Apple notarizes the app and the DMG, Gatekeeper accepts both ("Notarized Developer ID"), and `generate_appcast` signs the feed entry with the Sparkle key.
 
 Not done or not checked yet:
 
-- The public GitHub repo `zirkelc/16to9`, with GitHub Pages set to "GitHub Actions". The CI and Pages workflows have not run yet.
 - A full update from one release to the next.
-- Screens with a scale of 2 (all checks ran on a screen with scale 1).
 - The permission card with a real drag and drop into the Accessibility list (all checks ran while the permission was on).
 - VoiceOver: the icon buttons, preset rows and section headers have labels, but nobody has used the app with VoiceOver on yet.
 
@@ -168,8 +167,9 @@ All of this is pure code in `FitCalculator` with table-driven tests.
 - `GuideOverlayPanel` is an `NSPanel`: borderless, transparent, `ignoresMouseEvents = true`, level above normal windows and below the menu bar, `collectionBehavior` `.canJoinAllSpaces`, `.fullScreenAuxiliary`, `.stationary`.
 - `sharingType = .none` keeps it out of screen captures. This must be tested on macOS 14, 15 and 26 with the system screenshot tool, because the behavior changed for ScreenCaptureKit in recent versions. If it does not work, the HUD gets a "Hide for 5 s" action.
 - The overlay cannot take clicks, because the user must resize the window under it. Thus a second small panel, `GuideHUDPanel`, holds the buttons, and drag handles at the frame corners move the frame.
-- While the guide shows, Escape hides it and the arrow keys move the frame by one unit (ten units with Shift). An event tap takes these keys from all other apps while the guide shows, so that the front app does not also get them. Each key has a switch in Settings › Shortcuts (both on by default), for users who need the keys in their app while the guide shows. The guide shortcut (for example ⌃⌥G) also toggles the guide.
+- While the guide shows, Escape hides it and the arrow keys move the frame by one unit (ten units with Shift), but at least by one point. An event tap takes these keys from all other apps while the guide shows, so that the front app does not also get them. Each key has a switch in Settings › Shortcuts (both on by default), for users who need the keys in their app while the guide shows. The guide shortcut (for example ⌃⌥G) also toggles the guide.
 - The arrow buttons and the arrow keys do not move the bar, so that the buttons stay under the mouse.
+- The frame is always at whole points, because macOS moves windows only by whole points. On a screen with scale 2, a frame at a half point is 1 px away from each window that the user can make, so Snap could never match it. The frame starts at whole points, and a drag or an arrow key moves it by whole points (on a screen with scale 2, an arrow key moves it by 2 px).
 - Rulers: zero is at the top left corner of the visible area, so the rulers stay in place while the frame moves. A marker on each ruler shows the position of each edge of the frame. The tag and the bar show the size.
 - Live readout: the guide reads the frame of the front window ten times a second while it shows. This also follows a change of the front window. Each edge is green when it matches to the unit, else orange with the distance and an arrow.
 - Snap: the same window control as the resize action, with the frame of the guide as the target.
@@ -219,8 +219,8 @@ All of this is pure code in `FitCalculator` with table-driven tests.
 
 - One time: notary credentials with `xcrun notarytool store-credentials notary --apple-id <id> --team-id D568Q9VY3L` (an app-specific password of the Apple ID). The profile works for all apps of the team.
 - One time: the Sparkle private key in the login keychain (account `ed25519`), with a backup in 1Password (`generate_keys -x <file>` from `build/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bin`), because a lost key stops all updates. The public key is `SPARKLE_PUBLIC_KEY` in `project.yml`.
-- One time: the public repo `zirkelc/16to9`, with GitHub Pages set to "GitHub Actions" (Settings › Pages), and the GitHub CLI logged in.
-- Each release: `scripts/release.sh <version> <build>`. The build number must be higher than before, because Sparkle compares it (the script checks this). The script publishes the DMG as the GitHub release `v<version>` and writes `site/appcast.xml`. Commit and push the feed, then the Pages workflow publishes it. Keep the release folder (`~/.local/share/16to9-release`), because Sparkle makes delta updates from the earlier releases.
+- One time: the public repo `zirkelc/16to9`, and the GitHub CLI logged in.
+- Each release: `scripts/release.sh <version> <build>`. The build number must be higher than before, because Sparkle compares it (the script checks this). The script publishes the DMG, the delta updates and the feed as the GitHub release `v<version>`. The release is a draft until all files are up. Keep the release folder (`~/.local/share/16to9-release`), because Sparkle makes delta updates from the earlier releases, and the script reads the last build number from its feed.
 - Each release: test the DMG on a second Mac or user account (Gatekeeper, first start, permission prompt, update from the previous version).
 
 ## Risks

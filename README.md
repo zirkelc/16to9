@@ -1,111 +1,76 @@
-<img src="App/Resources/Assets.xcassets/AppIcon.appiconset/icon_128x128.png" width="64" height="64" alt="">
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="design/logos/final/wordmark.svg">
+    <img src="design/logos/final/wordmark-light.svg" width="360" alt="16to9">
+  </picture>
+</p>
 
-# 16to9
+<p align="center">Resize any Mac window to an exact size or ratio.<br>For screenshots, screen recordings and demos that must have a fixed size.</p>
 
-A macOS menu bar app that resizes windows to exact sizes (for example 1920 × 1080) or to ratios (for example 16:9) with the smallest change. It can also show a guide frame with rulers, so that you can size a window by hand.
+<p align="center">
+  <a href="https://github.com/zirkelc/16to9/releases/latest"><b>Download for macOS</b></a> · macOS 14 or later · Free and open source
+</p>
 
-- Plan: [docs/PLAN.md](docs/PLAN.md)
-- Mockup: [design/mockup.html](design/mockup.html)
+<p align="center"><img src="docs/images/hero.png" width="860" alt="16to9 shows a guide frame with rulers around a window"></p>
+
+## Features
+
+- **Exact sizes.** Select a preset or type `1920x1080`, and the front window gets this size.
+- **Ratios with the smallest change.** Select 16:9, 4:3, 9:16 or type `1.91:1`. 16to9 keeps the width or the height, and changes the window as little as possible.
+- **Guide with rulers.** A frame with rulers shows the target size on the screen, so that you can place and size a window by hand. Each edge turns green when the window matches. Snap moves the window into the frame. Screenshots and screen recordings do not show the guide.
+- **Presets.** Built-in sizes for social posts (X, LinkedIn, Instagram, YouTube, Open Graph), screens (Full HD, 4K, MacBook) and Mac App Store screenshots. Add your own presets and put the ones you use most in Favorites.
+- **Pixels, not guesses.** Sizes are in screenshot pixels, so a window screenshot has exactly the size you select, also on a Retina screen. You can change to points in Settings.
+- **Shortcuts.** Show the guide from any app with ⌃⌥G, give each preset its own shortcut, and undo the last resize.
+- **Preview.** While you point at a size in the menu, a frame on the screen shows the new size before you click.
+
+<p align="center"><img src="docs/images/menu.png" width="366" alt="The 16to9 menu with presets"></p>
 
 ## Install
 
-Download the DMG of the newest version from [Releases](https://github.com/zirkelc/16to9/releases) and drag 16to9 into Applications. The app is signed with a Developer ID and notarized by Apple. It updates itself with [Sparkle](https://sparkle-project.org).
+1. Download the DMG from [Releases](https://github.com/zirkelc/16to9/releases/latest).
+2. Open it and drag 16to9 into Applications.
+3. Start 16to9. A short tour shows how to give it the Accessibility permission.
 
-To resize windows, the app needs the Accessibility permission. The welcome tour shows how to give it. The guide frame works without the permission. The app collects no data: see the [privacy policy](PRIVACY.md).
+The app is signed with a Developer ID, notarized by Apple, and updates itself with [Sparkle](https://sparkle-project.org).
 
-## Requirements
+## Use
 
-- macOS 14 or later
-- Xcode 26 or later
-- [XcodeGen](https://github.com/yonaskolb/XcodeGen) (`brew install xcodegen`)
+Click the 16to9 icon in the menu bar. Select **Resize window** or **Show guide**, then select a preset or type a size or ratio:
 
-## Build
-
-The Xcode project is generated from `project.yml` and is not in Git.
-
-```sh
-xcodegen generate
-xcodebuild -project 16to9.xcodeproj -scheme 16to9 -configuration Debug -derivedDataPath build/DerivedData build
-open "build/DerivedData/Build/Products/Debug/16to9 (dev).app"
-```
-
-The Debug build is a separate app, "16to9 (dev)", with the bundle ID `dev.zirkelc.16to9.dev`. It has its own settings and its own Accessibility permission, so it can be installed and run next to the release build. Its app icon has a red "DEV" label (a red dot at small sizes), and its menu bar icon has a dot at the top right. It never checks for updates. Both apps have the same default shortcuts. When both run, only one of them gets a shortcut, so change the shortcuts of one app in Settings.
-
-Start the app with `open` or from Finder. Then the app uses its own Accessibility permission. When a terminal starts the binary, macOS uses the permission of the terminal.
-
-The debug build is signed with the development certificate of the team, so the Accessibility permission stays after a rebuild. If you are not in the team, set your own team with `DEVELOPMENT_TEAM=<team ID>` at the end of the `xcodebuild` command. A build without signing (`CODE_SIGNING_ALLOWED=NO`) also runs, but macOS then asks for the Accessibility permission again after each build.
-
-The app does not use the App Sandbox, because the sandbox blocks the Accessibility API for other apps. For this reason it is distributed outside the Mac App Store.
-
-## Test
-
-The logic for sizes, ratios, rulers and presets is in the Swift package `Packages/ResizerCore` and has no AppKit dependency.
-
-```sh
-cd Packages/ResizerCore
-swift test
-```
-
-## Debug screens
-
-Debug builds read `APP_DEBUG_SHOW` at launch and open one part of the app. This is for screenshots and manual checks:
-
-| Value | Opens |
+| You type | The window gets |
 | --- | --- |
-| `popover` | The menu bar popover |
-| `guide` | The guide with 1920 × 1080 |
-| `guide-snap` | The guide, then snaps the front window to it |
-| `resize:16:9` | Resizes the front window to the value after `resize:` |
-| `preview:16:9` | Shows the size preview of the value after `preview:` for the front window, as if the pointer is on it in the menu |
-| `onboarding` | The onboarding tour from its first step |
-| `onboarding-<step>` | One step of the tour: `welcome`, `howItWorks`, `permission`, `tryIt`, `tryGuide` or `done` |
-| `onboarding-resized` | The Done step after a resize of a Finder window |
-| `permission-card` | System Settings with the card to drag the app into the Accessibility list (also when the permission is on) |
-| `settings-cycle` | Switches through all settings tabs and logs the window frame and the time of each switch |
-| `general`, `presets`, `shortcuts`, `about`, `settings-guide` | A settings pane (the prefix `settings-` works for all panes) |
+| `1280x720` or `1280 720` | 1280 × 720 |
+| `16:9` | The ratio 16:9, with the smallest change |
+| `1.91:1` | The ratio 1.91:1, with the smallest change |
 
-`APP_DEBUG_SECTION=social` selects a group in the Presets pane. `APP_DEBUG_EDITOR=1` opens the sheet for a new preset (`ratio` opens it for a ratio). `APP_DEBUG_RECORDING=1` makes the first shortcut field that appears start to record, so that its popover shows. `APP_DEBUG_DENIED=1` shows all screens as if the Accessibility permission is off. Launch arguments override settings, for example `-popoverLayout grid` or `-hideGuideInScreenshots NO`.
+While the guide shows:
 
-## Logs
+| Key | Action |
+| --- | --- |
+| ⌃⌥G | Show or hide the guide (from any app) |
+| ← → ↑ ↓ | Move the frame by 1 px (2 px on a Retina screen, because windows move by whole points) |
+| ⇧ and an arrow key | Move the frame by 10 px |
+| Esc | Hide the guide |
 
-The app writes to the unified system log. The subsystem is the bundle ID (`dev.zirkelc.16to9` or `dev.zirkelc.16to9.dev`), and the categories are `app`, `resize`, `guide`, `permission` and `shortcuts`. Resizes, snaps, the guide, permission changes and Accessibility errors are logged as notice or error, so they stay on disk. Shortcuts and tour steps are logged as info, which is only in memory. Window titles are never logged.
+You can change all shortcuts in Settings › Shortcuts.
 
-zsh has its own `log` command, so the commands use the full path `/usr/bin/log`.
+## Why the Accessibility permission?
 
-```sh
-# Live, with all levels (use the bundle ID of the build you test):
-/usr/bin/log stream --level debug --predicate 'subsystem == "dev.zirkelc.16to9.dev"'
-# The last hour from disk:
-/usr/bin/log show --last 1h --info --predicate 'subsystem == "dev.zirkelc.16to9"'
-```
+macOS lets an app move and resize the windows of other apps only with the Accessibility permission. 16to9 uses it only to read and set the position and size of the front window. It does not read the contents of windows. The guide works without the permission.
 
-Console.app shows the same messages: search for the subsystem, and turn on Action > Include Info Messages.
+16to9 collects no data and has no analytics. The only network access is the check for updates. See the [privacy policy](PRIVACY.md).
 
-## Translations
+## FAQ
 
-The app is in English and German. The texts are in two string catalogs in `App/Resources`: `Localizable.xcstrings` for the UI and `Presets.xcstrings` for the names of the built-in presets. Xcode adds new texts from the code to `Localizable.xcstrings` when it builds. To check for texts without a translation:
+**Why is 16to9 not in the Mac App Store?** Apps in the Mac App Store must use the App Sandbox, and the sandbox blocks the Accessibility API for other apps.
 
-```sh
-xcodebuild -exportLocalizations -project 16to9.xcodeproj -localizationPath build/loc -exportLanguage de
-```
+**Why does a window not get the exact size?** Some apps limit their window size, for example to a minimum size or to full lines of text in a terminal. 16to9 then shows a message with the size that the app accepted.
 
-To see the app in German, start it with `-AppleLanguages "(de)"`.
+**Pixels or points?** macOS measures windows in points. On a Retina screen, 1 point is 2 pixels. A window screenshot (⇧⌘4, then Space) has the size in pixels, so 16to9 uses pixels by default. Hold ⌥ when you click to leave out the shadow.
 
-## Release
+## Build from source
 
-`scripts/release.sh <version> <build>` archives the app, exports it with the Developer ID certificate, notarizes the app and the DMG, publishes the DMG as a GitHub release and writes the Sparkle feed to `site/appcast.xml`. When you push the feed, the Pages workflow publishes it at `https://zirkelc.github.io/16to9/appcast.xml`, and the installed apps find the update. The one-time setup is in the comment at the top of the script and in the release checklist in [docs/PLAN.md](docs/PLAN.md).
-
-The CI workflow runs the tests of `ResizerCore` and makes a Release build without signing for each push and pull request.
-
-## App icon
-
-The app icons (`AppIcon` and `AppIcon-Dev` for the Debug build) and the menu bar glyph come from the SVG files in `design/logos/final/`. The full icon is for 128 px and larger, and the simple icon is for 64 px and smaller. After a change to the SVG files, run (needs `rsvg-convert` from librsvg):
-
-```sh
-scripts/make-icon.sh
-```
-
-macOS keeps old app icons in a cache. If a Debug build still shows the old icon, register the app again: `/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -f "build/DerivedData/Build/Products/Debug/16to9 (dev).app"`.
+See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
