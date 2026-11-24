@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Builds a signed and notarized release DMG, publishes it as a GitHub release and updates the Sparkle feed.
+# Builds a signed and notarized release DMG and publishes it with the Sparkle feed as a GitHub release.
 #
 # Usage: scripts/release.sh <version> <build>
 # Example: scripts/release.sh 1.0 1
@@ -11,15 +11,15 @@
 # - The Sparkle private key in the login keychain (account "ed25519"). Its public key is SPARKLE_PUBLIC_KEY in
 #   project.yml.
 # - The GitHub CLI, logged in with write access to the repo.
-# - GitHub Pages for the repo, with "GitHub Actions" as the source. It serves site/, which has the feed.
 #
 # Environment:
 # - NOTARY_PROFILE: notarytool keychain profile (default notary)
 # - RELEASE_DIR: keeps all earlier releases, which Sparkle needs for delta updates
 #   (default ~/.local/share/16to9-release). It is not in build/, because a clean would delete it.
 #
-# The DMG goes up first and the feed last: the feed goes live only when site/appcast.xml is pushed, so an upload
-# that stops halfway does not point users at a missing file.
+# The apps read the feed from https://github.com/zirkelc/16to9/releases/latest/download/appcast.xml, so each release
+# has the feed as a file. The release is a draft until all files are up, because "latest" must not point to a
+# release that has no feed yet.
 set -euo pipefail
 
 version=${1:?version, for example 1.0}
@@ -32,11 +32,11 @@ sparkle_bin="$root/build/DerivedData/SourcePackages/artifacts/sparkle/Sparkle/bi
 repo=zirkelc/16to9
 team=D568Q9VY3L
 tag="v$version"
-feed="$root/site/appcast.xml"
 
 # Sparkle offers an update only when its build number is higher than the installed one.
-if [[ -f $feed ]]; then
-  latest=$(grep -oE '<sparkle:version>[0-9]+<' "$feed" | grep -oE '[0-9]+' | sort -n | tail -1 || true)
+# The release folder keeps the feed of the last release.
+if [[ -f $updates/appcast.xml ]]; then
+  latest=$(grep -oE '<sparkle:version>[0-9]+<' "$updates/appcast.xml" | grep -oE '[0-9]+' | sort -n | tail -1 || true)
   if [[ -n $latest && $build -le $latest ]]; then
     echo "error: build $build is not higher than build $latest in the feed" >&2
     exit 1
@@ -107,9 +107,7 @@ deltas=("${(@f)$(find "$updates" -maxdepth 1 -name '*.delta' -newer "$dmg")}")
 deltas=(${deltas:#})
 
 echo "→ Publish the GitHub release $tag"
-gh release create "$tag" --repo "$repo" --title "16to9 $version" --generate-notes "$dmg" "${deltas[@]}"
-
-mkdir -p "${feed:h}"
-cp "$updates/appcast.xml" "$feed"
+gh release create "$tag" --repo "$repo" --title "16to9 $version" --generate-notes --draft \
+  "$dmg" "${deltas[@]}" "$updates/appcast.xml"
+gh release edit "$tag" --repo "$repo" --draft=false --latest
 echo "Done: $dmg"
-echo "Next: commit and push site/appcast.xml. Then GitHub Pages publishes the feed and the apps find the update."

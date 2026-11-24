@@ -64,9 +64,9 @@ targets:
         DEAD_CODE_STRIPPING: YES
         SWIFT_EMIT_LOC_STRINGS: YES
         LOCALIZATION_PREFERS_STRING_CATALOGS: YES
-        # Sparkle reads the update feed from GitHub Pages and checks each update with this public key. The private
-        # key is in the login keychain of the release Mac (Sparkle account "ed25519").
-        SPARKLE_FEED_URL: https://zirkelc.github.io/16to9/appcast.xml
+        # Sparkle reads the update feed from the newest GitHub release and checks each update with this public key.
+        # The private key is in the login keychain of the release Mac (Sparkle account "ed25519").
+        SPARKLE_FEED_URL: https://github.com/zirkelc/16to9/releases/latest/download/appcast.xml
         SPARKLE_PUBLIC_KEY: 0rSq/PlKZL2WCCVfBaS4PUxNPTrmPL2j1UGZJnPd7ps=
         COMBINE_HIDPI_IMAGES: YES
         APP_DISPLAY_NAME: 16to9
