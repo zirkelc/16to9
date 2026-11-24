@@ -27,7 +27,7 @@ final class ToastController {
   func show(_ toast: Toast, on screen: ScreenInfo?) {
     generation += 1
     let host = FirstMouseHostingView(
-      rootView: ToastView(toast: toast) { [weak self] in
+      ToastView(toast: toast) { [weak self] in
         self?.hide()
         self?.onUndo()
       })

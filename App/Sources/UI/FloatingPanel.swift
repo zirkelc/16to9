@@ -24,7 +24,7 @@ final class FloatingPanel: NSPanel {
   override var canBecomeMain: Bool { false }
 
   func setRootView<Content: View>(_ view: Content) {
-    contentView = FirstMouseHostingView(rootView: view)
+    contentView = FirstMouseHostingView(view)
   }
 
   // Excludes the panel from screenshots and screen recordings when `hidden` is true.
@@ -33,7 +33,14 @@ final class FloatingPanel: NSPanel {
   }
 }
 
-// Takes the first click, so that a button in a panel works while another app is active.
-final class FirstMouseHostingView<Content: View>: NSHostingView<Content> {
+/**
+ Takes the first click, so that a button in a panel works while another app is active. The class is not
+ generic, because the optimizer of Swift 6.3 crashes on the deinit of a generic subclass of NSHostingView.
+ */
+final class FirstMouseHostingView: NSHostingView<AnyView> {
+  convenience init<Content: View>(_ view: Content) {
+    self.init(rootView: AnyView(view))
+  }
+
   override func acceptsFirstMouse(for event: NSEvent?) -> Bool { true }
 }
