@@ -1,0 +1,138 @@
+{
+  "sourceLanguage": "en",
+  "version": "1.0",
+  "strings": {
+    "Instagram portrait": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instagram Hochformat"
+          }
+        }
+      }
+    },
+    "Instagram square": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instagram quadratisch"
+          }
+        }
+      }
+    },
+    "Instagram story": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Instagram-Story"
+          }
+        }
+      }
+    },
+    "LinkedIn cover": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LinkedIn-Titelbild"
+          }
+        }
+      }
+    },
+    "LinkedIn post": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LinkedIn-Beitrag"
+          }
+        }
+      }
+    },
+    "LinkedIn square": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LinkedIn quadratisch"
+          }
+        }
+      }
+    },
+    "Open Graph image": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open-Graph-Bild"
+          }
+        }
+      }
+    },
+    "Product Hunt gallery": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Product-Hunt-Galerie"
+          }
+        }
+      }
+    },
+    "X header": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "X-Header"
+          }
+        }
+      }
+    },
+    "X post": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "X-Beitrag"
+          }
+        }
+      }
+    },
+    "YouTube thumbnail": {
+      "comment": "Name of a built-in preset",
+      "extractionState": "manual",
+      "localizations": {
+        "de": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "YouTube-Thumbnail"
+          }
+        }
+      }
+    }
+  }
+}

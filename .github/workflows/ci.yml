@@ -1,0 +1,53 @@
+# Tests the core package and builds the app on each push to main and each pull request. It uses no secrets and
+# no signing. Releases are made on a Mac with scripts/release.sh.
+name: CI
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['site/**', 'design/**', '**.md']
+  pull_request:
+    paths-ignore: ['site/**', 'design/**', '**.md']
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: macos-26
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      # The newest Xcode on the runner image.
+      - name: Select Xcode
+        run: |
+          xcode=$(ls -d /Applications/Xcode_*.app 2>/dev/null | sort -V | tail -1)
+          sudo xcode-select -s "${xcode:-/Applications/Xcode.app}"
+          xcodebuild -version
+
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Test ResizerCore
+        working-directory: Packages/ResizerCore
+        run: swift test
+
+      # The runner has no certificate. The linker signs the app ad hoc.
+      - name: Build Release
+        run: |
+          xcodegen generate
+          xcodebuild build \
+            -project 16to9.xcodeproj \
+            -scheme 16to9 \
+            -configuration Release \
+            -destination 'platform=macOS' \
+            -derivedDataPath build/DerivedData \
+            -skipPackagePluginValidation \
+            -skipMacroValidation \
+            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_REQUIRED=NO \
+            CODE_SIGN_IDENTITY="" \
+            DEVELOPMENT_TEAM=""

@@ -1,0 +1,2159 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@ %@ too narrow" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %@ zu schmal"
+          }
+        }
+      }
+    },
+    "%@ %@ too short" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %@ zu niedrig"
+          }
+        }
+      }
+    },
+    "%@ %@ too tall" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %@ zu hoch"
+          }
+        }
+      }
+    },
+    "%@ %@ too wide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ %@ zu breit"
+          }
+        }
+      }
+    },
+    "%@ did not accept the exact size" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ hat die genaue Größe nicht übernommen"
+          }
+        }
+      }
+    },
+    "%@ matches" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ passt"
+          }
+        }
+      }
+    },
+    "%@ · %@" : {
+      "shouldTranslate" : false
+    },
+    "16to9 Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16to9-Einstellungen"
+          }
+        }
+      }
+    },
+    "16to9 can now resize windows." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16to9 kann jetzt Fenster anpassen."
+          }
+        }
+      }
+    },
+    "16to9 cannot resize windows yet" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16to9 kann noch keine Fenster anpassen"
+          }
+        }
+      }
+    },
+    "16to9 is allowed." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16to9 ist erlaubt."
+          }
+        }
+      }
+    },
+    "16to9 needs one permission" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16to9 braucht eine Erlaubnis"
+          }
+        }
+      }
+    },
+    "16to9 resized “%@”." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16to9 hat „%@“ angepasst."
+          }
+        }
+      }
+    },
+    "16to9 stays in the menu bar. Press" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "16to9 bleibt in der Menüleiste. Drücke"
+          }
+        }
+      }
+    },
+    "A frame with rulers shows on the screen. Move the window into the frame until its edges are green." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Rahmen mit Linealen erscheint auf dem Bildschirm. Schiebe das Fenster in den Rahmen, bis seine Kanten grün sind."
+          }
+        }
+      }
+    },
+    "A short message with the new size and an Undo button." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine kurze Meldung mit der neuen Größe und der Taste „Widerrufen“."
+          }
+        }
+      }
+    },
+    "About" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Über"
+          }
+        }
+      }
+    },
+    "Acknowledgments" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Danksagungen"
+          }
+        }
+      }
+    },
+    "Action" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aktion"
+          }
+        }
+      }
+    },
+    "Add" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hinzufügen"
+          }
+        }
+      }
+    },
+    "Add Preset" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorgabe hinzufügen"
+          }
+        }
+      }
+    },
+    "Add a size or ratio that you use often, for example 1400x600 for a blog header." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge eine Größe oder ein Verhältnis hinzu, das du oft brauchst, zum Beispiel 1400x600 für einen Blog-Header."
+          }
+        }
+      }
+    },
+    "Add to favorites" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu Favoriten hinzufügen"
+          }
+        }
+      }
+    },
+    "Add your own sizes and shortcuts in Settings." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigene Größen und Kurzbefehle fügst du in den Einstellungen hinzu."
+          }
+        }
+      }
+    },
+    "Add ⌘, ⌥ or ⌃" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Füge ⌘, ⌥ oder ⌃ hinzu"
+          }
+        }
+      }
+    },
+    "After resize" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach dem Ändern"
+          }
+        }
+      }
+    },
+    "Allow" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erlauben"
+          }
+        }
+      }
+    },
+    "Allow access for a live readout" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zugriff erlauben für Live-Anzeige"
+          }
+        }
+      }
+    },
+    "Allow opens System Settings. Drag 16to9 from the small card into the list." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "„Erlauben“ öffnet die Systemeinstellungen. Ziehe 16to9 aus der kleinen Karte in die Liste."
+          }
+        }
+      }
+    },
+    "Allow window control" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenstersteuerung erlauben"
+          }
+        }
+      }
+    },
+    "Allow window control in System Settings. The guide works without it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erlaube die Fenstersteuerung in den Systemeinstellungen. Die Hilfslinien funktionieren auch ohne."
+          }
+        }
+      }
+    },
+    "Allowed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Erlaubt"
+          }
+        }
+      }
+    },
+    "Amber" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bernstein"
+          }
+        }
+      }
+    },
+    "Animation: 16to9 resizes a window to 16:9, then a guide with rulers shows a frame for the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animation: 16to9 bringt ein Fenster auf 16:9, dann zeigen Hilfslinien mit Linealen einen Rahmen für das Fenster."
+          }
+        }
+      }
+    },
+    "Animation: a guide with rulers shows a frame, and a window moves into the frame." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animation: Hilfslinien mit Linealen zeigen einen Rahmen, und ein Fenster bewegt sich in den Rahmen."
+          }
+        }
+      }
+    },
+    "App" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        }
+      }
+    },
+    "App Store" : {
+      "shouldTranslate" : false
+    },
+    "Arrow keys move the frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pfeiltasten bewegen den Rahmen"
+          }
+        }
+      }
+    },
+    "Back" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zurück"
+          }
+        }
+      }
+    },
+    "Blog header" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blog-Header"
+          }
+        }
+      }
+    },
+    "Cancel" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abbrechen"
+          }
+        }
+      }
+    },
+    "Center the frame on the screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen auf dem Bildschirm zentrieren"
+          }
+        }
+      }
+    },
+    "Change only the shape of the window, with the smallest change in size." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ändert nur die Form des Fensters, mit der kleinsten Änderung der Größe."
+          }
+        }
+      }
+    },
+    "Check for Updates…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach Updates suchen …"
+          }
+        }
+      }
+    },
+    "Check for updates automatically" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Automatisch nach Updates suchen"
+          }
+        }
+      }
+    },
+    "Clear" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
+          }
+        }
+      }
+    },
+    "Click a window first" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke zuerst auf ein Fenster"
+          }
+        }
+      }
+    },
+    "Click here" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hier klicken"
+          }
+        }
+      }
+    },
+    "Click the app icon in the menu bar and pick a size. The window that was in front gets this size." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke in der Menüleiste auf das App-Symbol und wähle eine Größe. Das Fenster, das vorne war, bekommt diese Größe."
+          }
+        }
+      }
+    },
+    "Click the star of a preset to add it here." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke auf den Stern einer Vorgabe, um sie hier hinzuzufügen."
+          }
+        }
+      }
+    },
+    "Click to change the shortcut" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicken, um den Kurzbefehl zu ändern"
+          }
+        }
+      }
+    },
+    "Close" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        }
+      }
+    },
+    "Collapsed" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eingeklappt"
+          }
+        }
+      }
+    },
+    "Color" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Farbe"
+          }
+        }
+      }
+    },
+    "Common screen and video sizes." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Übliche Bildschirm- und Videogrößen."
+          }
+        }
+      }
+    },
+    "Continue" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiter"
+          }
+        }
+      }
+    },
+    "Custom" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eigene"
+          }
+        }
+      }
+    },
+    "Cyan" : {
+      "shouldTranslate" : false
+    },
+    "Delete" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Löschen"
+          }
+        }
+      }
+    },
+    "Delete the selected custom preset" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgewählte eigene Vorgabe löschen"
+          }
+        }
+      }
+    },
+    "Dim the screen outside the frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirm außerhalb des Rahmens abdunkeln"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig"
+          }
+        }
+      }
+    },
+    "Done: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fertig: %@"
+          }
+        }
+      }
+    },
+    "Drag 16to9 into the list to allow window control." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ziehe 16to9 in die Liste, um die Fenstersteuerung zu erlauben."
+          }
+        }
+      }
+    },
+    "Drag into the Accessibility list in System Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In die Liste „Bedienungshilfen“ der Systemeinstellungen ziehen"
+          }
+        }
+      }
+    },
+    "Drag to move the guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ziehen, um die Hilfslinien zu bewegen"
+          }
+        }
+      }
+    },
+    "Edit preset" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorgabe bearbeiten"
+          }
+        }
+      }
+    },
+    "Edit…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bearbeiten …"
+          }
+        }
+      }
+    },
+    "Escape hides the guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Esc blendet die Hilfslinien aus"
+          }
+        }
+      }
+    },
+    "Expanded" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ausgeklappt"
+          }
+        }
+      }
+    },
+    "Favorites" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favoriten"
+          }
+        }
+      }
+    },
+    "General" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Allgemein"
+          }
+        }
+      }
+    },
+    "Get Started" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los geht’s"
+          }
+        }
+      }
+    },
+    "Give a preset its own shortcut in Presets." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unter „Vorgaben“ kannst du einer Vorgabe einen eigenen Kurzbefehl geben."
+          }
+        }
+      }
+    },
+    "Global shortcuts. MIT licence, © Sindre Sorhus." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Globale Kurzbefehle. MIT-Lizenz, © Sindre Sorhus."
+          }
+        }
+      }
+    },
+    "Grid" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Raster"
+          }
+        }
+      }
+    },
+    "Groups" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gruppen"
+          }
+        }
+      }
+    },
+    "Guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien"
+          }
+        }
+      }
+    },
+    "Height" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Höhe"
+          }
+        }
+      }
+    },
+    "Hide the guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien ausblenden"
+          }
+        }
+      }
+    },
+    "Hide the guide (Esc)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien ausblenden (Esc)"
+          }
+        }
+      }
+    },
+    "Hide the guide in screenshots" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien in Bildschirmfotos ausblenden"
+          }
+        }
+      }
+    },
+    "How 16to9 works" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "So funktioniert 16to9"
+          }
+        }
+      }
+    },
+    "How a ratio such as 16:9 changes the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wie ein Verhältnis wie 16:9 das Fenster ändert."
+          }
+        }
+      }
+    },
+    "Keep center" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mitte beibehalten"
+          }
+        }
+      }
+    },
+    "Keep height" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Höhe beibehalten"
+          }
+        }
+      }
+    },
+    "Keep top-left corner" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ecke oben links beibehalten"
+          }
+        }
+      }
+    },
+    "Keep width" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breite beibehalten"
+          }
+        }
+      }
+    },
+    "Launch at login" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beim Anmelden öffnen"
+          }
+        }
+      }
+    },
+    "Links" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Links"
+          }
+        }
+      }
+    },
+    "List" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste"
+          }
+        }
+      }
+    },
+    "Menu layout" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Menülayout"
+          }
+        }
+      }
+    },
+    "Move and resize the front window to the frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorderes Fenster in den Rahmen bewegen und anpassen"
+          }
+        }
+      }
+    },
+    "Move the frame down" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach unten bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame down by 1 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen um 1 %@ nach unten bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame down: ↓ 1 %@, ⇧↓ 10 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach unten bewegen: ↓ 1 %@, ⇧↓ 10 %@"
+          }
+        }
+      }
+    },
+    "Move the frame left" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach links bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame left by 1 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen um 1 %@ nach links bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame left: ← 1 %@, ⇧← 10 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach links bewegen: ← 1 %@, ⇧← 10 %@"
+          }
+        }
+      }
+    },
+    "Move the frame right" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach rechts bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame right by 1 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen um 1 %@ nach rechts bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame right: → 1 %@, ⇧→ 10 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach rechts bewegen: → 1 %@, ⇧→ 10 %@"
+          }
+        }
+      }
+    },
+    "Move the frame up" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach oben bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame up by 1 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen um 1 %@ nach oben bewegen"
+          }
+        }
+      }
+    },
+    "Move the frame up: ↑ 1 %@, ⇧↑ 10 %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rahmen nach oben bewegen: ↑ 1 %@, ⇧↑ 10 %@"
+          }
+        }
+      }
+    },
+    "Name" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        }
+      }
+    },
+    "New preset" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neue Vorgabe"
+          }
+        }
+      }
+    },
+    "No app" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine App"
+          }
+        }
+      }
+    },
+    "No custom presets" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine eigenen Vorgaben"
+          }
+        }
+      }
+    },
+    "No favorites" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Favoriten"
+          }
+        }
+      }
+    },
+    "No preset found. Type a size like 1280x720 or a ratio like 4:3." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keine Vorgabe gefunden. Gib eine Größe wie 1280x720 oder ein Verhältnis wie 4:3 ein."
+          }
+        }
+      }
+    },
+    "No window" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Fenster"
+          }
+        }
+      }
+    },
+    "No window found" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Fenster gefunden"
+          }
+        }
+      }
+    },
+    "No window to resize" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Fenster zum Anpassen"
+          }
+        }
+      }
+    },
+    "No window to snap" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kein Fenster zum Einrasten"
+          }
+        }
+      }
+    },
+    "Not available in this build" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In diesem Build nicht verfügbar"
+          }
+        }
+      }
+    },
+    "Nothing to undo" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nichts zum Widerrufen"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen öffnen"
+          }
+        }
+      }
+    },
+    "Or show a guide with rulers, and fit the window by hand." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oder zeige Hilfslinien mit Linealen und richte das Fenster von Hand aus."
+          }
+        }
+      }
+    },
+    "Pick a size or ratio in the menu bar. 16to9 resizes the front window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wähle in der Menüleiste eine Größe oder ein Verhältnis. 16to9 passt das vordere Fenster an."
+          }
+        }
+      }
+    },
+    "Pink" : {
+      "shouldTranslate" : false
+    },
+    "Pixels are the size of a window screenshot. Points are the size macOS uses for windows. On this screen, 1 pt = %lld px. A window screenshot (⇧⌘4, then Space) has the size of the window. Hold ⌥ when you click to leave out the shadow." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pixel sind die Größe eines Fensterfotos. Punkte sind die Größe, die macOS für Fenster verwendet. Auf diesem Bildschirm gilt 1 pt = %lld px. Ein Fensterfoto (⇧⌘4, dann Leertaste) hat die Größe des Fensters. Halte beim Klicken ⌥ gedrückt, um den Schatten wegzulassen."
+          }
+        }
+      }
+    },
+    "Preset" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorgabe"
+          }
+        }
+      }
+    },
+    "Presets" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorgaben"
+          }
+        }
+      }
+    },
+    "Press" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drücke"
+          }
+        }
+      }
+    },
+    "Preview of the guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorschau der Hilfslinien"
+          }
+        }
+      }
+    },
+    "Privacy Policy" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Datenschutzerklärung"
+          }
+        }
+      }
+    },
+    "Quit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Beenden"
+          }
+        }
+      }
+    },
+    "Ratio" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verhältnis"
+          }
+        }
+      }
+    },
+    "Ratio %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verhältnis %@"
+          }
+        }
+      }
+    },
+    "Ratio fit" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anpassung an Verhältnis"
+          }
+        }
+      }
+    },
+    "Ratios" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verhältnisse"
+          }
+        }
+      }
+    },
+    "Record" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnehmen"
+          }
+        }
+      }
+    },
+    "Record shortcut" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurzbefehl aufnehmen"
+          }
+        }
+      }
+    },
+    "Recording…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aufnahme…"
+          }
+        }
+      }
+    },
+    "Remove from favorites" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aus Favoriten entfernen"
+          }
+        }
+      }
+    },
+    "Remove the shortcut" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurzbefehl entfernen"
+          }
+        }
+      }
+    },
+    "Reset to %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Auf %@ zurücksetzen"
+          }
+        }
+      }
+    },
+    "Resize and move the windows of other apps" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster anderer Apps anpassen und bewegen"
+          }
+        }
+      }
+    },
+    "Resize any window to an exact size or aspect ratio." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bring jedes Fenster auf eine genaue Größe oder ein Seitenverhältnis."
+          }
+        }
+      }
+    },
+    "Resize window" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster anpassen"
+          }
+        }
+      }
+    },
+    "Resize your first window" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passe dein erstes Fenster an"
+          }
+        }
+      }
+    },
+    "Restore Defaults" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Standard wiederherstellen"
+          }
+        }
+      }
+    },
+    "Result" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ergebnis"
+          }
+        }
+      }
+    },
+    "Save" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sichern"
+          }
+        }
+      }
+    },
+    "Screen points" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirmpunkte"
+          }
+        }
+      }
+    },
+    "Screens" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirme"
+          }
+        }
+      }
+    },
+    "Screenshot pixels" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirmfoto-Pixel"
+          }
+        }
+      }
+    },
+    "Screenshot sizes for the Mac App Store." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirmfotogrößen für den Mac App Store."
+          }
+        }
+      }
+    },
+    "Screenshots and screen recordings do not show the guide." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bildschirmfotos und Bildschirmaufnahmen zeigen die Hilfslinien nicht."
+          }
+        }
+      }
+    },
+    "Set Up…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einrichten …"
+          }
+        }
+      }
+    },
+    "Set up access…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zugriff einrichten …"
+          }
+        }
+      }
+    },
+    "Set up later" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Später einrichten"
+          }
+        }
+      }
+    },
+    "Settings…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen …"
+          }
+        }
+      }
+    },
+    "Shortcut" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurzbefehl"
+          }
+        }
+      }
+    },
+    "Shortcuts" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurzbefehle"
+          }
+        }
+      }
+    },
+    "Show" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zeigen"
+          }
+        }
+      }
+    },
+    "Show a message after each resize" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nach jeder Änderung eine Meldung zeigen"
+          }
+        }
+      }
+    },
+    "Show a preview of the new size" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eine Vorschau der neuen Größe zeigen"
+          }
+        }
+      }
+    },
+    "Show as grid" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als Raster zeigen"
+          }
+        }
+      }
+    },
+    "Show as list" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Als Liste zeigen"
+          }
+        }
+      }
+    },
+    "Show center lines" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mittellinien zeigen"
+          }
+        }
+      }
+    },
+    "Show guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien zeigen"
+          }
+        }
+      }
+    },
+    "Show or hide the guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien ein- oder ausblenden"
+          }
+        }
+      }
+    },
+    "Show the guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien einblenden"
+          }
+        }
+      }
+    },
+    "Show the guide at any time with" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfslinien jederzeit zeigen mit"
+          }
+        }
+      }
+    },
+    "Size" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größe"
+          }
+        }
+      }
+    },
+    "Size or ratio, e.g. 1280x720 or 4:3" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größe oder Verhältnis, z. B. 1280x720 oder 4:3"
+          }
+        }
+      }
+    },
+    "Sizes" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größen"
+          }
+        }
+      }
+    },
+    "Sizes for posts, covers and images on social networks." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größen für Beiträge, Titelbilder und Bilder in sozialen Netzwerken."
+          }
+        }
+      }
+    },
+    "Skip" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Überspringen"
+          }
+        }
+      }
+    },
+    "Smallest change" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kleinste Änderung"
+          }
+        }
+      }
+    },
+    "Snap" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einrasten"
+          }
+        }
+      }
+    },
+    "Social" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Social Media"
+          }
+        }
+      }
+    },
+    "Support" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Support"
+          }
+        }
+      }
+    },
+    "The font of the app name. SIL Open Font License 1.1, © the JetBrains Mono Project Authors." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Schrift des App-Namens. SIL Open Font License 1.1, © die Autoren des JetBrains-Mono-Projekts."
+          }
+        }
+      }
+    },
+    "The guide is on the screen. Press the keys again to hide it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Hilfslinien sind auf dem Bildschirm. Drücke die Tasten noch einmal, um sie auszublenden."
+          }
+        }
+      }
+    },
+    "The guide shows on the screen of the front window. Drag the tag above the frame to move it. Edges turn green when the window matches." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Hilfslinien erscheinen auf dem Bildschirm des vorderen Fensters. Ziehe das Etikett über dem Rahmen, um sie zu bewegen. Kanten werden grün, wenn das Fenster passt."
+          }
+        }
+      }
+    },
+    "The guide works without this permission." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Hilfslinien funktionieren auch ohne diese Erlaubnis."
+          }
+        }
+      }
+    },
+    "The idea for the permission card and the welcome tour. MIT licence, © Kit Langton." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Idee für die Erlaubnis-Karte und die Einführung. MIT-Lizenz, © Kit Langton."
+          }
+        }
+      }
+    },
+    "The presets at the top of the menu. Drag a row to change the order." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Vorgaben oben im Menü. Ziehe eine Zeile, um die Reihenfolge zu ändern."
+          }
+        }
+      }
+    },
+    "The short introduction from the first launch." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die kurze Einführung vom ersten Start."
+          }
+        }
+      }
+    },
+    "This window cannot be resized" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Größe dieses Fensters lässt sich nicht ändern"
+          }
+        }
+      }
+    },
+    "This window is in full screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Fenster ist im Vollbildmodus"
+          }
+        }
+      }
+    },
+    "Too large for this screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu groß für diesen Bildschirm"
+          }
+        }
+      }
+    },
+    "Type" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Art"
+          }
+        }
+      }
+    },
+    "Type a shortcut. Escape cancels, Delete removes it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drücke einen Kurzbefehl. Escape bricht ab, Löschen entfernt ihn."
+          }
+        }
+      }
+    },
+    "Type the two numbers of the ratio." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gib die zwei Zahlen des Verhältnisses ein."
+          }
+        }
+      }
+    },
+    "Type the width and the height." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gib die Breite und die Höhe ein."
+          }
+        }
+      }
+    },
+    "Undo" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Widerrufen"
+          }
+        }
+      }
+    },
+    "Undo the last resize" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Letzte Änderung widerrufen"
+          }
+        }
+      }
+    },
+    "Units" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einheiten"
+          }
+        }
+      }
+    },
+    "Updates" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Updates"
+          }
+        }
+      }
+    },
+    "Updates. MIT licence, © the Sparkle Project contributors." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Updates. MIT-Lizenz, © die Mitwirkenden des Sparkle-Projekts."
+          }
+        }
+      }
+    },
+    "Use %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ verwenden"
+          }
+        }
+      }
+    },
+    "Use a ratio between 1:10 and 10:1." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwende ein Verhältnis zwischen 1:10 und 10:1."
+          }
+        }
+      }
+    },
+    "Use whole numbers from 50 to 20000." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verwende ganze Zahlen von 50 bis 20000."
+          }
+        }
+      }
+    },
+    "Used by “%@”" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Belegt durch „%@“"
+          }
+        }
+      }
+    },
+    "Version %@ (%@)" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@ (%@)"
+          }
+        }
+      }
+    },
+    "Waiting for a resize…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warte auf eine Anpassung …"
+          }
+        }
+      }
+    },
+    "Waiting for macOS…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warte auf macOS …"
+          }
+        }
+      }
+    },
+    "Waiting for the guide…" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Warte auf die Hilfslinien …"
+          }
+        }
+      }
+    },
+    "Website" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Website"
+          }
+        }
+      }
+    },
+    "Welcome to 16to9" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Willkommen bei 16to9"
+          }
+        }
+      }
+    },
+    "Welcome tour" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einführung"
+          }
+        }
+      }
+    },
+    "While the guide shows" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Solange die Hilfslinien zu sehen sind"
+          }
+        }
+      }
+    },
+    "While you point at a size in the menu, a frame on the screen shows the new size of the window." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wenn du im Menü auf eine Größe zeigst, zeigt ein Rahmen auf dem Bildschirm die neue Größe des Fensters."
+          }
+        }
+      }
+    },
+    "White" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weiß"
+          }
+        }
+      }
+    },
+    "Width" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Breite"
+          }
+        }
+      }
+    },
+    "Window" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenster"
+          }
+        }
+      }
+    },
+    "Window control" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fenstersteuerung"
+          }
+        }
+      }
+    },
+    "You are ready" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alles bereit"
+          }
+        }
+      }
+    },
+    "Your own sizes and ratios. Double-click a preset to edit it." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deine eigenen Größen und Verhältnisse. Doppelklicke auf eine Vorgabe, um sie zu bearbeiten."
+          }
+        }
+      }
+    },
+    "for the guide." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "für die Hilfslinien."
+          }
+        }
+      }
+    },
+    "in any app." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "in einer beliebigen App."
+          }
+        }
+      }
+    },
+    "size matches, move it into the frame" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größe passt, in den Rahmen bewegen"
+          }
+        }
+      }
+    },
+    "too large" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "zu groß"
+          }
+        }
+      }
+    },
+    "⇧ with an arrow key moves the frame by 10 %@. While the guide shows, other apps do not get these keys." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "⇧ mit einer Pfeiltaste bewegt den Rahmen um 10 %@. Solange die Hilfslinien zu sehen sind, bekommen andere Apps diese Tasten nicht."
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

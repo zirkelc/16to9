@@ -1,0 +1,46 @@
+{
+  "name": "C1 · Midnight and amber",
+  "colors": [
+    {
+      "role": "brand primary",
+      "hex": "#2350A0",
+      "use": "Icon tile, buttons, links. Tile gradient #2350A0 to #0A1C45."
+    },
+    {
+      "role": "accent",
+      "hex": "#FFB547",
+      "use": "Guide frame in the icon, target handle, the \"to\" in the name on dark."
+    },
+    {
+      "role": "accent on light",
+      "hex": "#D98C00",
+      "use": "The \"to\" in the name on light. The icon amber is too light to read on white."
+    },
+    {
+      "role": "dark background",
+      "hex": "#0A1C45",
+      "use": "Onboarding and dark surfaces."
+    },
+    {
+      "role": "rulers",
+      "hex": "#F7FBFF",
+      "use": "Rulers, gradient to #D2E3F6. Ticks and numbers in #0A1C45."
+    },
+    {
+      "role": "guide frame",
+      "hex": "#FFB547",
+      "use": "The on-screen guide frame and snap lines."
+    },
+    {
+      "role": "text on primary",
+      "hex": "#FFFFFF",
+      "use": "White on #2350A0 is 7.7:1."
+    },
+    {
+      "role": "success",
+      "hex": "#5BE38A",
+      "use": "Confirmation when a window has the target size."
+    }
+  ],
+  "rationale": "Round 3 colors: navy tile, white rulers, amber guide."
+}

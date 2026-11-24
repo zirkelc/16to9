@@ -1,0 +1,14 @@
+.DS_Store
+*.xcodeproj
+build/
+DerivedData/
+.build/
+.swiftpm/
+xcuserdata/
+
+# Design drafts and decision pages stay local. The repo keeps the mockup and the final logo, which the app icons come from.
+design/*
+!design/mockup.html
+!design/logos/
+design/logos/*
+!design/logos/final/

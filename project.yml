@@ -1,0 +1,90 @@
+name: 16to9
+options:
+  bundleIdPrefix: dev.zirkelc
+  developmentLanguage: en
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+  indentWidth: 2
+  tabWidth: 2
+  usesTabs: false
+settings:
+  base:
+    DEVELOPMENT_TEAM: D568Q9VY3L
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    SWIFT_VERSION: "6.0"
+packages:
+  ResizerCore:
+    path: Packages/ResizerCore
+  KeyboardShortcuts:
+    url: https://github.com/sindresorhus/KeyboardShortcuts
+    from: "2.0.0"
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    from: "2.6.0"
+targets:
+  # A Swift module name cannot start with a digit, so the target has a spelled-out name.
+  SixteenToNine:
+    type: application
+    platform: macOS
+    sources:
+      - path: App/Sources
+      - path: App/Resources
+    dependencies:
+      - package: ResizerCore
+      - package: KeyboardShortcuts
+      - package: Sparkle
+    info:
+      path: App/Info.plist
+      properties:
+        CFBundleDisplayName: $(APP_DISPLAY_NAME)
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        LSUIElement: true
+        # The app bundles the font of the app name. macOS loads the fonts in the Resources folder.
+        ATSApplicationFontsPath: "."
+        LSApplicationCategoryType: public.app-category.utilities
+        LSMinimumSystemVersion: $(MACOSX_DEPLOYMENT_TARGET)
+        NSHumanReadableCopyright: "© 2026 Chris Cook"
+        SUFeedURL: $(SPARKLE_FEED_URL)
+        SUPublicEDKey: $(SPARKLE_PUBLIC_KEY)
+        SUEnableAutomaticChecks: true
+    settings:
+      base:
+        PRODUCT_NAME: 16to9
+        PRODUCT_MODULE_NAME: SixteenToNine
+        PRODUCT_BUNDLE_IDENTIFIER: dev.zirkelc.16to9
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: YES
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+        SWIFT_APPROACHABLE_CONCURRENCY: YES
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+        DEAD_CODE_STRIPPING: YES
+        SWIFT_EMIT_LOC_STRINGS: YES
+        LOCALIZATION_PREFERS_STRING_CATALOGS: YES
+        # Sparkle reads the update feed from GitHub Pages and checks each update with this public key. The private
+        # key is in the login keychain of the release Mac (Sparkle account "ed25519").
+        SPARKLE_FEED_URL: https://zirkelc.github.io/16to9/appcast.xml
+        SPARKLE_PUBLIC_KEY: 0rSq/PlKZL2WCCVfBaS4PUxNPTrmPL2j1UGZJnPd7ps=
+        COMBINE_HIDPI_IMAGES: YES
+        APP_DISPLAY_NAME: 16to9
+      # The Debug build is a separate app ("16to9 (dev)") with its own bundle ID, settings, permission and
+      # icon, so that it can be installed next to the release build. It never checks for updates.
+      configs:
+        Debug:
+          PRODUCT_NAME: "16to9 (dev)"
+          APP_DISPLAY_NAME: "16to9 (dev)"
+          PRODUCT_BUNDLE_IDENTIFIER: dev.zirkelc.16to9.dev
+          ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon-Dev
+          SPARKLE_FEED_URL: ""
+schemes:
+  16to9:
+    build:
+      targets:
+        SixteenToNine: all
+    run:
+      config: Debug
+    archive:
+      config: Release
