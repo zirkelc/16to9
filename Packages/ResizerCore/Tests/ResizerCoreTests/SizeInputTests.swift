@@ -121,3 +121,20 @@ struct AspectRatioTests {
     #expect(label == "100000000000000000000:100000000000000000000")
   }
 }
+
+@Suite("PresetTarget")
+struct PresetTargetTests {
+  @Test("removes the spaces of a size for the small tiles and keeps the spaces between words", arguments: [
+    (text: "1920 × 1080", compact: "1920×1080"),
+    (text: "→ 1920 × 1080", compact: "→1920×1080"),
+    (text: "too large", compact: "too large"),
+    (text: "zu groß", compact: "zu groß"),
+  ])
+  func compactLabel(text: String, compact: String) {
+    // Act
+    let result = PresetTarget.compactLabel(text)
+
+    // Assert
+    #expect(result == compact)
+  }
+}

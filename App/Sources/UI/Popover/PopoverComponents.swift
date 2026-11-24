@@ -90,7 +90,7 @@ struct EntryTile: View {
           .font(.system(size: 11.5, weight: .medium))
           .lineLimit(1)
           .truncationMode(.tail)
-        Text(preview.text.replacingOccurrences(of: " ", with: ""))
+        Text(PresetTarget.compactLabel(preview.text))
           .font(.system(size: 10, design: .monospaced))
           .foregroundStyle(isHighlighted ? .white.opacity(0.9) : .secondary)
           .lineLimit(1)

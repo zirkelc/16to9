@@ -55,3 +55,10 @@ public enum SizeUnit: String, Codable, CaseIterable, Sendable {
     }
   }
 }
+
+extension PresetTarget {
+  // A short form of a label for small tiles: "→ 1920 × 1080" becomes "→1920×1080". Spaces between words stay.
+  public static func compactLabel(_ text: String) -> String {
+    text.replacingOccurrences(of: " × ", with: "×").replacingOccurrences(of: "→ ", with: "→")
+  }
+}
