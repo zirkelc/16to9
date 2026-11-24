@@ -921,22 +921,22 @@
         }
       }
     },
-    "Move the frame down by 1 %@" : {
+    "Move the frame down by %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen um 1 %@ nach unten bewegen"
+            "value" : "Rahmen um %@ %@ nach unten bewegen"
           }
         }
       }
     },
-    "Move the frame down: ↓ 1 %@, ⇧↓ 10 %@" : {
+    "Move the frame down: ↓ %@ %@, ⇧↓ %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen nach unten bewegen: ↓ 1 %@, ⇧↓ 10 %@"
+            "value" : "Rahmen nach unten bewegen: ↓ %@ %@, ⇧↓ %@ %@"
           }
         }
       }
@@ -951,22 +951,22 @@
         }
       }
     },
-    "Move the frame left by 1 %@" : {
+    "Move the frame left by %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen um 1 %@ nach links bewegen"
+            "value" : "Rahmen um %@ %@ nach links bewegen"
           }
         }
       }
     },
-    "Move the frame left: ← 1 %@, ⇧← 10 %@" : {
+    "Move the frame left: ← %@ %@, ⇧← %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen nach links bewegen: ← 1 %@, ⇧← 10 %@"
+            "value" : "Rahmen nach links bewegen: ← %@ %@, ⇧← %@ %@"
           }
         }
       }
@@ -981,22 +981,22 @@
         }
       }
     },
-    "Move the frame right by 1 %@" : {
+    "Move the frame right by %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen um 1 %@ nach rechts bewegen"
+            "value" : "Rahmen um %@ %@ nach rechts bewegen"
           }
         }
       }
     },
-    "Move the frame right: → 1 %@, ⇧→ 10 %@" : {
+    "Move the frame right: → %@ %@, ⇧→ %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen nach rechts bewegen: → 1 %@, ⇧→ 10 %@"
+            "value" : "Rahmen nach rechts bewegen: → %@ %@, ⇧→ %@ %@"
           }
         }
       }
@@ -1011,22 +1011,22 @@
         }
       }
     },
-    "Move the frame up by 1 %@" : {
+    "Move the frame up by %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen um 1 %@ nach oben bewegen"
+            "value" : "Rahmen um %@ %@ nach oben bewegen"
           }
         }
       }
     },
-    "Move the frame up: ↑ 1 %@, ⇧↑ 10 %@" : {
+    "Move the frame up: ↑ %@ %@, ⇧↑ %@ %@" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rahmen nach oben bewegen: ↑ 1 %@, ⇧↑ 10 %@"
+            "value" : "Rahmen nach oben bewegen: ↑ %@ %@, ⇧↑ %@ %@"
           }
         }
       }

@@ -138,19 +138,26 @@ struct GuideHUDView: View {
     .accessibilityLabel(Self.nudgeLabel(dx: dx, dy: dy))
   }
 
-  // The tooltip names the arrow keys only when they move the guide.
+  /**
+   The tooltip names the arrow keys only when they move the guide. The steps are the real distances, because the
+   guide moves by at least one point (2 px on a screen with scale 2).
+   */
   private func nudgeTip(dx: Int, dy: Int) -> String {
     let unit = guide.settings.units.symbol
+    let upp = guide.unitsPerPoint
+    let step = "\(Int((GuideGeometry.nudgePoints(units: 1, unitsPerPoint: upp) * upp).rounded()))"
+    let large = "\(Int((GuideGeometry.nudgePoints(units: 10, unitsPerPoint: upp) * upp).rounded()))"
     guard guide.settings.arrowKeysMoveGuide else {
-      if dx < 0 { return String(localized: "Move the frame left by 1 \(unit)") }
-      if dx > 0 { return String(localized: "Move the frame right by 1 \(unit)") }
-      return dy < 0 ? String(localized: "Move the frame up by 1 \(unit)") : String(localized: "Move the frame down by 1 \(unit)")
+      if dx < 0 { return String(localized: "Move the frame left by \(step) \(unit)") }
+      if dx > 0 { return String(localized: "Move the frame right by \(step) \(unit)") }
+      return dy < 0
+        ? String(localized: "Move the frame up by \(step) \(unit)") : String(localized: "Move the frame down by \(step) \(unit)")
     }
-    if dx < 0 { return String(localized: "Move the frame left: ← 1 \(unit), ⇧← 10 \(unit)") }
-    if dx > 0 { return String(localized: "Move the frame right: → 1 \(unit), ⇧→ 10 \(unit)") }
+    if dx < 0 { return String(localized: "Move the frame left: ← \(step) \(unit), ⇧← \(large) \(unit)") }
+    if dx > 0 { return String(localized: "Move the frame right: → \(step) \(unit), ⇧→ \(large) \(unit)") }
     return dy < 0
-      ? String(localized: "Move the frame up: ↑ 1 \(unit), ⇧↑ 10 \(unit)")
-      : String(localized: "Move the frame down: ↓ 1 \(unit), ⇧↓ 10 \(unit)")
+      ? String(localized: "Move the frame up: ↑ \(step) \(unit), ⇧↑ \(large) \(unit)")
+      : String(localized: "Move the frame down: ↓ \(step) \(unit), ⇧↓ \(large) \(unit)")
   }
 
   private static func nudgeLabel(dx: Int, dy: Int) -> LocalizedStringKey {

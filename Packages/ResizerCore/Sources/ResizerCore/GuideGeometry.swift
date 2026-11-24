@@ -107,6 +107,14 @@ public enum GuideGeometry {
   }
 
   /**
+   The distance in points for a move of the guide by a number of units. It is rounded up to whole points, because
+   windows move only by whole points: on a screen with scale 2, one pixel moves the guide by one point.
+   */
+  public static func nudgePoints(units: Int, unitsPerPoint: Double) -> CGFloat {
+    (CGFloat(units) / unitsPerPoint).rounded(.awayFromZero)
+  }
+
+  /**
    The guide frame for a target on a screen. A size uses its exact value. A ratio uses the given
    window size and fit mode when there is a window, else 60 percent of the visible area. The frame is centered.
    */
@@ -126,9 +134,12 @@ public enum GuideGeometry {
         size = FitCalculator.largest(ratio: ratio.value, in: area, unitsPerPoint: unitsPerPoint)
       }
     }
-    let x = FitCalculator.snap(visible.midX - size.width / 2, unitsPerPoint)
-    let y = FitCalculator.snap(visible.midY - size.height / 2, unitsPerPoint)
-    return CGRect(x: x, y: y, width: size.width, height: size.height)
+    return CGRect(origin: centeredOrigin(size: size, in: visible), size: size)
+  }
+
+  // The origin that centers a guide of a size in the visible area, at whole points so that a window can match it.
+  public static func centeredOrigin(size: CGSize, in visible: CGRect) -> CGPoint {
+    CGPoint(x: (visible.midX - size.width / 2).rounded(), y: (visible.midY - size.height / 2).rounded())
   }
 }
 

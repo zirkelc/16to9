@@ -140,6 +140,33 @@ struct GuideGeometryTests {
     #expect(frame == CGRect(x: 276, y: 215, width: 960, height: 540))
   }
 
+  @Test("puts the guide at whole points, because windows move only by whole points")
+  func guideFrameAtWholePoints() {
+    // Arrange
+    let visible = CGRect(x: 0, y: 1472, width: 1512, height: 951)
+
+    // Act
+    let frame = GuideGeometry.frame(for: .size(width: 1920, height: 1080), window: nil, visible: visible, unitsPerPoint: 2)
+
+    // Assert
+    #expect(frame == CGRect(x: 276, y: 1678, width: 960, height: 540))
+  }
+
+  @Test("moves the guide by the units, rounded up to whole points", arguments: [
+    (units: 1, unitsPerPoint: 2.0, points: 1.0),
+    (units: -1, unitsPerPoint: 2.0, points: -1.0),
+    (units: 10, unitsPerPoint: 2.0, points: 5.0),
+    (units: 1, unitsPerPoint: 1.0, points: 1.0),
+    (units: -10, unitsPerPoint: 1.0, points: -10.0),
+  ])
+  func nudgePoints(units: Int, unitsPerPoint: Double, points: Double) {
+    // Act
+    let result = GuideGeometry.nudgePoints(units: units, unitsPerPoint: unitsPerPoint)
+
+    // Assert
+    #expect(result == CGFloat(points))
+  }
+
   @Test("sizes a ratio guide from the window")
   func guideFrameForRatio() {
     // Arrange

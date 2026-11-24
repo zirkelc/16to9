@@ -112,32 +112,32 @@ final class GuideController {
 
   func center() {
     guard let screen else { return }
-    let visible = screen.visibleFrame
-    let upp = unitsPerPoint
-    let x = ((visible.midX - frame.width / 2) * upp).rounded() / upp
-    let y = ((visible.midY - frame.height / 2) * upp).rounded() / upp
-    frame.origin = CGPoint(x: x, y: y)
+    frame.origin = GuideGeometry.centeredOrigin(size: frame.size, in: screen.visibleFrame)
     layoutTag()
     layoutHUD()
   }
 
   /**
-   Moves the frame by whole units with the arrow buttons or the arrow keys. The bar stays where it is, so that
-   the arrow buttons stay under the mouse.
+   Moves the frame with the arrow buttons or the arrow keys, by at least one point. The bar stays where it is, so
+   that the arrow buttons stay under the mouse.
    */
   func nudge(dx: Int, dy: Int) {
-    frame = frame.offsetBy(dx: CGFloat(dx) / unitsPerPoint, dy: CGFloat(dy) / unitsPerPoint)
+    let upp = unitsPerPoint
+    frame = frame.offsetBy(
+      dx: GuideGeometry.nudgePoints(units: dx, unitsPerPoint: upp), dy: GuideGeometry.nudgePoints(units: dy, unitsPerPoint: upp))
     layoutTag()
   }
 
-  // Drag of the tag. The mouse position on the screen is stable while the tag panel moves.
+  /**
+   Drag of the tag. The mouse position on the screen is stable while the tag panel moves. The frame moves by whole
+   points, because windows move only by whole points.
+   */
   func dragChanged() {
     let mouse = NSEvent.mouseLocation
     if dragStart == nil { dragStart = (mouse, frame) }
     guard let start = dragStart else { return }
-    let upp = unitsPerPoint
-    let dx = ((mouse.x - start.mouse.x) * upp).rounded() / upp
-    let dy = ((start.mouse.y - mouse.y) * upp).rounded() / upp
+    let dx = (mouse.x - start.mouse.x).rounded()
+    let dy = (start.mouse.y - mouse.y).rounded()
     frame.origin = CGPoint(x: start.frame.minX + dx, y: start.frame.minY + dy)
     layoutTag()
     layoutHUD()
