@@ -176,11 +176,13 @@ private struct GuideKeysSection: View {
     let unit = settings.units.symbol
     Section {
       GuideKeyRow(title: "Escape hides the guide", keys: ["esc"], isOn: $settings.escapeHidesGuide)
-      GuideKeyRow(title: "Arrow keys move the frame", keys: ["←", "→", "↑", "↓"], isOn: $settings.arrowKeysMoveGuide)
+      GuideKeyRow(
+        title: "Arrow keys move the frame", hint: "Moves the frame by 1 \(unit). Hold ⇧ to move it by 10 \(unit).",
+        keys: ["←", "→", "↑", "↓"], isOn: $settings.arrowKeysMoveGuide)
     } header: {
       Text("While the guide shows")
     } footer: {
-      Text("⇧ with an arrow key moves the frame by 10 \(unit). While the guide shows, other apps do not get these keys.")
+      Text("Other apps do not get these keys while the guide shows.")
         .font(.caption)
         .foregroundStyle(.secondary)
     }
@@ -207,18 +209,24 @@ struct ShortcutRow: View {
   }
 }
 
-// A fixed key of the guide with a switch. The keys are dim while the switch is off.
+// A fixed key of the guide with a switch and an optional hint. The keys are dim while the switch is off.
 private struct GuideKeyRow: View {
   let title: LocalizedStringKey
+  var hint: LocalizedStringKey?
   let keys: [String]
   @Binding var isOn: Bool
 
   var body: some View {
     HStack(spacing: 12) {
-      Text(title)
+      VStack(alignment: .leading, spacing: 2) {
+        Text(title)
+        if let hint {
+          Text(hint).font(.caption).foregroundStyle(.secondary)
+        }
+      }
       Spacer()
       KeycapRow(labels: keys, size: 20).opacity(isOn ? 1 : 0.4)
-      Toggle(title, isOn: $isOn).labelsHidden().toggleStyle(.switch).controlSize(.small)
+      Toggle(title, isOn: $isOn).labelsHidden().toggleStyle(.switch).controlSize(.mini)
     }
   }
 }

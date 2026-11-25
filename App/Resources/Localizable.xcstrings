@@ -134,6 +134,16 @@
         }
       }
     },
+    "A frame on the screen shows the new size before you click." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Rahmen auf dem Bildschirm zeigt die neue Größe vor dem Klick."
+          }
+        }
+      }
+    },
     "A frame with rulers shows on the screen. Move the window into the frame until its edges are green." : {
       "localizations" : {
         "de" : {
@@ -690,6 +700,26 @@
         }
       }
     },
+    "Free space: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Freier Platz: %@"
+          }
+        }
+      }
+    },
+    "Free space: %@ · 1 pt = %lld px" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Freier Platz: %1$@ · 1 pt = %2$lld px"
+          }
+        }
+      }
+    },
     "General" : {
       "localizations" : {
         "de" : {
@@ -1031,6 +1061,16 @@
         }
       }
     },
+    "Moves the frame by 1 %@. Hold ⇧ to move it by 10 %@." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bewegt den Rahmen um 1 %1$@. Mit ⇧ um 10 %2$@."
+          }
+        }
+      }
+    },
     "Name" : {
       "localizations" : {
         "de" : {
@@ -1171,6 +1211,16 @@
         }
       }
     },
+    "Other apps do not get these keys while the guide shows." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Andere Apps bekommen diese Tasten nicht, solange die Hilfslinien zu sehen sind."
+          }
+        }
+      }
+    },
     "Pick a size or ratio in the menu bar. 16to9 resizes the front window." : {
       "localizations" : {
         "de" : {
@@ -1184,12 +1234,12 @@
     "Pink" : {
       "shouldTranslate" : false
     },
-    "Pixels are the size of a window screenshot. Points are the size macOS uses for windows. On this screen, 1 pt = %lld px. A window screenshot (⇧⌘4, then Space) has the size of the window. Hold ⌥ when you click to leave out the shadow." : {
+    "Pixels are the size of a window screenshot. Points are the size macOS uses for windows." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pixel sind die Größe eines Fensterfotos. Punkte sind die Größe, die macOS für Fenster verwendet. Auf diesem Bildschirm gilt 1 pt = %lld px. Ein Fensterfoto (⇧⌘4, dann Leertaste) hat die Größe des Fensters. Halte beim Klicken ⌥ gedrückt, um den Schatten wegzulassen."
+            "value" : "Pixel sind die Größe eines Fensterfotos. Punkte sind die Größe, die macOS für Fenster verwendet."
           }
         }
       }
@@ -1824,6 +1874,36 @@
         }
       }
     },
+    "Too tall for this screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu hoch für diesen Bildschirm"
+          }
+        }
+      }
+    },
+    "Too wide and too tall for this screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu breit und zu hoch für diesen Bildschirm"
+          }
+        }
+      }
+    },
+    "Too wide for this screen" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zu breit für diesen Bildschirm"
+          }
+        }
+      }
+    },
     "Type" : {
       "localizations" : {
         "de" : {
@@ -2034,16 +2114,6 @@
         }
       }
     },
-    "While you point at a size in the menu, a frame on the screen shows the new size of the window." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wenn du im Menü auf eine Größe zeigst, zeigt ein Rahmen auf dem Bildschirm die neue Größe des Fensters."
-          }
-        }
-      }
-    },
     "White" : {
       "localizations" : {
         "de" : {
@@ -2130,26 +2200,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Größe passt, in den Rahmen bewegen"
-          }
-        }
-      }
-    },
-    "too large" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "zu groß"
-          }
-        }
-      }
-    },
-    "⇧ with an arrow key moves the frame by 10 %@. While the guide shows, other apps do not get these keys." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "⇧ mit einer Pfeiltaste bewegt den Rahmen um 10 %@. Solange die Hilfslinien zu sehen sind, bekommen andere Apps diese Tasten nicht."
           }
         }
       }

@@ -52,8 +52,8 @@ final class SettingsNavigation {
  fixed size, so it does not change its size, and a pane shows at once without a transition.
  */
 final class SettingsWindowController: NSWindowController, NSWindowDelegate {
-  // Just large enough that the largest preset group and the About pane need no scroll bar.
-  static let size = NSSize(width: 780, height: 600)
+  // Just large enough that the General pane with two screens, the largest preset group and the About pane need no scroll bar.
+  static let size = NSSize(width: 780, height: 740)
 
   private let navigation = SettingsNavigation()
 
@@ -93,7 +93,12 @@ final class SettingsWindowController: NSWindowController, NSWindowDelegate {
   func show(_ tab: SettingsTab) {
     navigation.tab = tab
     NSApp.setActivationPolicy(.regular)
-    NSApp.activate()
+    /**
+     The settings open from the menu of the menu bar item, which belongs to another process on macOS. A
+     plain activation is only a request that macOS refuses then, and an inactive window draws its
+     switches grey. This activation does not ask the front app.
+     */
+    NSApp.activate(ignoringOtherApps: true)
     let mouse = NSEvent.mouseLocation
     if let window, !window.isVisible, let screen = NSScreen.screens.first(where: { $0.frame.contains(mouse) }) ?? NSScreen.screens.first {
       // Centers on the screen with the mouse pointer, where the user works.

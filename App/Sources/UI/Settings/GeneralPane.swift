@@ -1,3 +1,4 @@
+import AppKit
 import ResizerCore
 import ServiceManagement
 import SwiftUI
@@ -41,7 +42,7 @@ struct GeneralPane: View {
           .pickerStyle(.segmented)
           Toggle(isOn: $settings.showsSizePreview) {
             Text("Show a preview of the new size")
-            Text("While you point at a size in the menu, a frame on the screen shows the new size of the window.")
+            Text("A frame on the screen shows the new size before you click.")
           }
           Toggle(isOn: $settings.showToasts) {
             Text("Show a message after each resize")
@@ -68,9 +69,9 @@ struct GeneralPane: View {
           }
         } header: {
           Text("Sizes")
-        } footer: {
-          Text(unitsHelp).font(.caption).foregroundStyle(.secondary)
         }
+
+        ScreensSection(units: settings.units)
       }
     }
     .animation(.easeOut(duration: 0.2), value: model.permission.isGranted)
@@ -93,16 +94,6 @@ struct GeneralPane: View {
     }
   }
 
-  private var unitsHelp: String {
-    let scale = Int(ScreenInfo.main?.scale ?? 2)
-    return String(
-      localized: """
-        Pixels are the size of a window screenshot. Points are the size macOS uses for windows. \
-        On this screen, 1 pt = \(scale) px. A window screenshot (⇧⌘4, then Space) has the size of the window. \
-        Hold ⌥ when you click to leave out the shadow.
-        """)
-  }
-
   private func setLaunchAtLogin(_ enabled: Bool) {
     do {
       if enabled {
@@ -121,6 +112,47 @@ struct GeneralPane: View {
         launchAtLogin = enabled
       }
     }
+  }
+}
+
+/**
+ The screens of the Mac with their size and the free space for a window, in the selected units. A window
+ screenshot has the size in pixels, so the scale of each screen says how many pixels one point has.
+ The list updates when a screen connects, disconnects or changes its resolution.
+ */
+private struct ScreensSection: View {
+  let units: SizeUnit
+  @State private var screens: [ScreenInfo] = []
+
+  var body: some View {
+    Section {
+      ForEach(screens, id: \.screen) { screen in
+        LabeledContent {
+          Text(size(screen.frame.size, on: screen))
+            .monospacedDigit()
+        } label: {
+          Text(screen.screen.localizedName)
+          Text("Free space: \(size(screen.visibleFrame.size, on: screen)) · 1 pt = \(Int(screen.scale)) px")
+        }
+      }
+    } header: {
+      Text("Screens")
+    } footer: {
+      Text("Pixels are the size of a window screenshot. Points are the size macOS uses for windows.")
+        .font(.caption)
+        .foregroundStyle(.secondary)
+    }
+    .onAppear(perform: reload)
+    .onReceive(NotificationCenter.default.publisher(for: NSApplication.didChangeScreenParametersNotification)) { _ in reload() }
+  }
+
+  private func reload() {
+    screens = NSScreen.screens.map { ScreenInfo(screen: $0) }
+  }
+
+  private func size(_ size: CGSize, on screen: ScreenInfo) -> String {
+    let upp = screen.unitsPerPoint(units)
+    return "\(Int((size.width * upp).rounded())) × \(Int((size.height * upp).rounded())) \(units.symbol)"
   }
 }
 
