@@ -229,13 +229,14 @@ struct OnboardingView: View {
       .background(RoundedRectangle(cornerRadius: 12, style: .continuous).fill(.white.opacity(0.05)))
       .hairlineBorder(RoundedRectangle(cornerRadius: 12, style: .continuous), .white.opacity(0.1))
       .padding(.top, 26)
-      text(granted ? "16to9 can now resize windows." : "Allow opens System Settings. Drag 16to9 from the small card into the list.")
+      text(granted ? "16to9 can now resize windows." : "Click Allow, then drag 16to9 into the list.")
         .padding(.top, 14)
       text("The guide works without this permission.")
         .padding(.top, 2)
         .opacity(granted ? 0 : 1)
       Spacer()
-      Button(flow.isPermissionOnly && granted ? "Done" : "Continue") {
+      // Without the tour, this step is the last one, so its button says "Done" before and after the permission.
+      Button(flow.isPermissionOnly ? "Done" : "Continue") {
         if flow.isPermissionOnly { close() } else { flow.step = .tryIt }
       }
       .buttonStyle(OnboardingButtonStyle(kind: granted ? .primary : .disabled))

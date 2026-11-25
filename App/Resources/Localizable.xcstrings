@@ -284,16 +284,6 @@
         }
       }
     },
-    "Allow opens System Settings. Drag 16to9 from the small card into the list." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "„Erlauben“ öffnet die Systemeinstellungen. Ziehe 16to9 aus der kleinen Karte in die Liste."
-          }
-        }
-      }
-    },
     "Allow window control" : {
       "localizations" : {
         "de" : {
@@ -453,6 +443,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Löschen"
+          }
+        }
+      }
+    },
+    "Click Allow, then drag 16to9 into the list." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Klicke auf „Erlauben“ und ziehe 16to9 in die Liste."
           }
         }
       }
