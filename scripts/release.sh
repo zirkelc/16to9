@@ -52,6 +52,12 @@ if [[ -z $identity ]]; then
   exit 1
 fi
 
+# Finder finds the DMG window by the volume name, which must be unique.
+if [[ -e /Volumes/16to9 ]]; then
+  echo "error: a disk named 16to9 is mounted. Eject it first." >&2
+  exit 1
+fi
+
 cd "$root"
 mkdir -p "$out" "$updates"
 
@@ -103,21 +109,33 @@ mount=$(hdiutil attach "$rw" -nobrowse -noautoopen | grep -oE '/Volumes/.*$' | t
 trap 'hdiutil detach "$mount" -quiet 2>/dev/null || true' EXIT
 ditto "$app" "$mount/16to9.app"
 ln -s /Applications "$mount/Applications"
+# The background has the size of the window content, at 1x and 2x in one TIFF. Finder draws the icon labels in
+# black on any background picture, so the background is light. The source is assets/dmg/background.svg.
+mkdir "$mount/.background"
+cp "$root/assets/dmg/background.tiff" "$mount/.background/background.tiff"
 # Only Finder can write the window layout. Without the permission to control Finder, the DMG opens in the default view.
+# Finder knows a new disk only after a short time. It does not accept a POSIX file inside its own tell block.
 osascript <<APPLESCRIPT >/dev/null 2>&1 || echo "warning: Finder did not set the window layout of the DMG"
+set bg to (POSIX file "$mount/.background/background.tiff") as alias
 tell application "Finder"
+  repeat 40 times
+    if exists disk "$(basename "$mount")" then exit repeat
+    delay 0.25
+  end repeat
   tell disk "$(basename "$mount")"
     open
     set current view of container window to icon view
     set toolbar visible of container window to false
     set statusbar visible of container window to false
-    set the bounds of container window to {240, 160, 840, 520}
+    -- 640 x 400 of content below the title bar.
+    set the bounds of container window to {240, 160, 880, 592}
     set viewOptions to the icon view options of container window
     set arrangement of viewOptions to not arranged
     set icon size of viewOptions to 128
     set text size of viewOptions to 13
-    set position of item "16to9.app" of container window to {150, 170}
-    set position of item "Applications" of container window to {450, 170}
+    set background picture of viewOptions to bg
+    set position of item "16to9.app" of container window to {160, 200}
+    set position of item "Applications" of container window to {480, 200}
     update without registering applications
     delay 1
     close
