@@ -32,7 +32,8 @@ struct EntryRow: View {
   let entry: MenuEntry
   let preview: EntryPreview
   let isHighlighted: Bool
-  let onHover: () -> Void
+  // Gets true when the pointer enters the entry and false when it leaves.
+  let onHover: (Bool) -> Void
   let action: () -> Void
 
   var body: some View {
@@ -48,6 +49,7 @@ struct EntryRow: View {
           .font(.system(size: 11.5, design: .monospaced))
           .foregroundStyle(isHighlighted ? .white.opacity(0.9) : .secondary)
           .lineLimit(1)
+        if preview.note != nil { NoteIcon(size: 11) }
         if !shortcut.isEmpty {
           Text(shortcut)
             .font(.system(size: 11))
@@ -63,9 +65,11 @@ struct EntryRow: View {
     .buttonStyle(.plain)
     .disabled(!preview.isEnabled)
     .opacity(preview.isEnabled ? 1 : 0.4)
-    .onHover { inside in if inside { onHover() } }
+    .onHover(perform: onHover)
+    .help(preview.note ?? "")
     .accessibilityLabel(Text(entry.name))
     .accessibilityValue(Text(preview.text.replacingOccurrences(of: "→ ", with: "")))
+    .accessibilityHint(Text(preview.note ?? ""))
   }
 
   private var shortcut: String {
@@ -78,7 +82,8 @@ struct EntryTile: View {
   let entry: MenuEntry
   let preview: EntryPreview
   let isHighlighted: Bool
-  let onHover: () -> Void
+  // Gets true when the pointer enters the entry and false when it leaves.
+  let onHover: (Bool) -> Void
   let action: () -> Void
 
   var body: some View {
@@ -90,10 +95,13 @@ struct EntryTile: View {
           .font(.system(size: 11.5, weight: .medium))
           .lineLimit(1)
           .truncationMode(.tail)
-        Text(PresetTarget.compactLabel(preview.text))
-          .font(.system(size: 10, design: .monospaced))
-          .foregroundStyle(isHighlighted ? .white.opacity(0.9) : .secondary)
-          .lineLimit(1)
+        HStack(spacing: 3) {
+          Text(PresetTarget.compactLabel(preview.text))
+            .font(.system(size: 10, design: .monospaced))
+            .foregroundStyle(isHighlighted ? .white.opacity(0.9) : .secondary)
+            .lineLimit(1)
+          if preview.note != nil { NoteIcon(size: 10) }
+        }
       }
       .padding(.horizontal, 4)
       .padding(.vertical, 8)
@@ -109,9 +117,23 @@ struct EntryTile: View {
     .buttonStyle(.plain)
     .disabled(!preview.isEnabled)
     .opacity(preview.isEnabled ? 1 : 0.4)
-    .onHover { inside in if inside { onHover() } }
+    .onHover(perform: onHover)
+    .help(preview.note ?? "")
     .accessibilityLabel(Text(entry.name))
     .accessibilityValue(Text(preview.text.replacingOccurrences(of: "→ ", with: "")))
+    .accessibilityHint(Text(preview.note ?? ""))
+  }
+}
+
+// The "?" after the size of an entry that has a note. The note shows as the help of the entry.
+struct NoteIcon: View {
+  let size: CGFloat
+
+  var body: some View {
+    Image(systemName: "questionmark.circle")
+      .font(.system(size: size))
+      .foregroundStyle(.secondary)
+      .accessibilityHidden(true)
   }
 }
 
@@ -119,7 +141,8 @@ struct SectionHeader: View {
   let title: String
   var isCollapsed: Bool?
   var isHighlighted = false
-  var onHover: (() -> Void)?
+  // Gets true when the pointer enters the header and false when it leaves.
+  var onHover: ((Bool) -> Void)?
   var toggle: (() -> Void)?
 
   var body: some View {
@@ -145,7 +168,7 @@ struct SectionHeader: View {
     }
     .buttonStyle(.plain)
     .disabled(toggle == nil)
-    .onHover { inside in if inside { onHover?() } }
+    .onHover { inside in onHover?(inside) }
     .accessibilityAddTraits(.isHeader)
     .accessibilityValue(isCollapsed.map { $0 ? Text("Collapsed") : Text("Expanded") } ?? Text(verbatim: ""))
   }

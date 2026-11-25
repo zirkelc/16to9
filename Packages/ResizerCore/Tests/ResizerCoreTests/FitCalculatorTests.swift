@@ -130,6 +130,32 @@ struct FitCalculatorTests {
     #expect(frame == nil)
   }
 
+  @Test("reports a size that is only too tall for the visible area")
+  func overflowTooTall() {
+    // Arrange
+    let visible = CGRect(x: 0, y: 30, width: 3440, height: 1410)
+    let size = FitCalculator.sizeInPoints(width: 1080, height: 1920, unitsPerPoint: 1)
+
+    // Act
+    let overflow = FitCalculator.overflow(of: size, in: visible)
+
+    // Assert
+    #expect(overflow == SizeOverflow(isTooWide: false, isTooTall: true))
+  }
+
+  @Test("reports a size that is too wide and too tall for the visible area")
+  func overflowTooWideAndTall() {
+    // Arrange
+    let visible = CGRect(x: 0, y: 30, width: 3440, height: 1410)
+    let size = FitCalculator.sizeInPoints(width: 3840, height: 2160, unitsPerPoint: 1)
+
+    // Act
+    let overflow = FitCalculator.overflow(of: size, in: visible)
+
+    // Assert
+    #expect(overflow == SizeOverflow(isTooWide: true, isTooTall: true))
+  }
+
   @Test("moves the frame back into the visible area")
   func clampsIntoVisibleArea() {
     // Arrange

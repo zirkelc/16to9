@@ -32,6 +32,19 @@ public struct FitContext: Equatable, Sendable {
   }
 }
 
+// Whether a size is wider or taller than the visible area of a screen.
+public struct SizeOverflow: Equatable, Sendable {
+  public let isTooWide: Bool
+  public let isTooTall: Bool
+
+  public init(isTooWide: Bool, isTooTall: Bool) {
+    self.isTooWide = isTooWide
+    self.isTooTall = isTooTall
+  }
+
+  public var fits: Bool { !isTooWide && !isTooTall }
+}
+
 public enum FitCalculator {
   // A size can be larger than the visible area by this amount and still fit (rounding errors).
   static let tolerance: CGFloat = 0.01
@@ -78,7 +91,12 @@ public enum FitCalculator {
   }
 
   public static func fits(_ size: CGSize, in visible: CGRect) -> Bool {
-    size.width <= visible.width + tolerance && size.height <= visible.height + tolerance
+    overflow(of: size, in: visible).fits
+  }
+
+  // The sides on which a size is larger than the visible area.
+  public static func overflow(of size: CGSize, in visible: CGRect) -> SizeOverflow {
+    SizeOverflow(isTooWide: size.width > visible.width + tolerance, isTooTall: size.height > visible.height + tolerance)
   }
 
   // The largest size with the ratio that fits in the visible area, rounded down to whole units.

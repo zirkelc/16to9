@@ -14,6 +14,8 @@ struct MenuEntry: Identifiable, Equatable {
 struct EntryPreview {
   let text: String
   let isEnabled: Bool
+  // Why the entry cannot be used, for the help of a disabled entry, or nil.
+  var note: String? = nil
 }
 
 // The result of one resize: the app of the window and its new size as text, for example "1200 × 675 px".
@@ -103,12 +105,25 @@ final class AppModel {
         return EntryPreview(text: target.label, isEnabled: true)
       }
       return EntryPreview(text: "→ \(Int((size.width * upp).rounded())) × \(Int((size.height * upp).rounded()))", isEnabled: true)
-    case .size:
-      let fits = !FitCalculator.candidates(for: target, in: context).isEmpty
+    case .size(let width, let height):
+      let size = FitCalculator.sizeInPoints(width: width, height: height, unitsPerPoint: upp)
+      let overflow = FitCalculator.overflow(of: size, in: window.screen.visibleFrame)
       // A guide can be larger than the visible area, only a resize cannot.
-      if !fits && settings.action == .resize { return EntryPreview(text: String(localized: "too large"), isEnabled: false) }
+      if !overflow.fits && settings.action == .resize {
+        return EntryPreview(text: target.label, isEnabled: false, note: tooLargeNote(overflow, window: window))
+      }
       return EntryPreview(text: target.label, isEnabled: true)
     }
+  }
+
+  // Says on which side a size does not fit on the screen of the window, and how much space the screen has.
+  private func tooLargeNote(_ overflow: SizeOverflow, window: WindowSnapshot) -> String {
+    let reason =
+      overflow.isTooWide && overflow.isTooTall
+      ? String(localized: "Too wide and too tall for this screen")
+      : overflow.isTooWide ? String(localized: "Too wide for this screen") : String(localized: "Too tall for this screen")
+    let free = describe(window.screen.visibleFrame.size, on: window)
+    return "\(reason)\n" + String(localized: "Free space: \(free)")
   }
 
   /**
