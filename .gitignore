@@ -6,9 +6,8 @@ DerivedData/
 .swiftpm/
 xcuserdata/
 
-# Design drafts and decision pages stay local. The repo keeps the mockup and the final logo, which the app icons come from.
-design/*
-!design/mockup.html
-!design/logos/
-design/logos/*
-!design/logos/final/
+# Design drafts, mockups and decision pages stay local.
+design/
+
+# The working plan stays local.
+docs/PLAN.md

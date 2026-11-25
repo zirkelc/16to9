@@ -3,7 +3,7 @@
 # Run: scripts/make-icon.sh (needs rsvg-convert from librsvg)
 set -euo pipefail
 cd "$(dirname $0)/.."
-src=design/logos/final
+src=assets/logo
 assets=App/Resources/Assets.xcassets
 tmp=$(mktemp -d)
 

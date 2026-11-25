@@ -2,8 +2,6 @@
 
 Bug reports, ideas and pull requests are welcome. For a larger change, please open an issue first, so that we can agree on the approach.
 
-The plan with the decisions and the architecture is in [docs/PLAN.md](docs/PLAN.md), and the first mockup is in [design/mockup.html](design/mockup.html).
-
 ## Requirements
 
 - macOS 14 or later
@@ -84,13 +82,13 @@ To see the app in German, start it with `-AppleLanguages "(de)"`.
 
 ## Release
 
-`scripts/release.sh <version> <build>` archives the app, exports it with the Developer ID certificate, notarizes the app and the DMG, and publishes the DMG, the delta updates and the Sparkle feed (`appcast.xml`) as a GitHub release. The apps read the feed from `https://github.com/zirkelc/16to9/releases/latest/download/appcast.xml`, so they find the update as soon as the release is public. The one-time setup is in the comment at the top of the script and in the release checklist in [docs/PLAN.md](docs/PLAN.md).
+`scripts/release.sh <version> <build>` archives the app, exports it with the Developer ID certificate, notarizes the app and the DMG, and publishes the DMG, the delta updates and the Sparkle feed (`appcast.xml`) as a GitHub release. The apps read the feed from `https://github.com/zirkelc/16to9/releases/latest/download/appcast.xml`, so they find the update as soon as the release is public. The one-time setup is in the comment at the top of the script.
 
 The CI workflow runs the tests of `ResizerCore` and makes a Release build without signing for each push and pull request.
 
 ## App icon
 
-The app icons (`AppIcon` and `AppIcon-Dev` for the Debug build) and the menu bar glyph come from the SVG files in `design/logos/final/`. The full icon is for 128 px and larger, and the simple icon is for 64 px and smaller. After a change to the SVG files, run (needs `rsvg-convert` from librsvg):
+The app icons (`AppIcon` and `AppIcon-Dev` for the Debug build) and the menu bar glyph come from the SVG files in `assets/logo/`. The full icon is for 128 px and larger, and the simple icon is for 64 px and smaller. After a change to the SVG files, run (needs `rsvg-convert` from librsvg):
 
 ```sh
 scripts/make-icon.sh
