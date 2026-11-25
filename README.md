@@ -32,7 +32,9 @@ Click the 16to9 icon in the menu bar. Select **Resize window** or **Show guide**
 
 https://github.com/user-attachments/assets/ad75ee62-d4e0-408d-b187-e5bd97ae17c4
 
-While the guide shows, the arrow keys move the frame (with ⇧ by 10 px) and Esc hides it. ⌃⌥G shows and hides the guide from any app. You can change the shortcuts in Settings › Shortcuts.
+Use the guide when only a part of a window must have the size, for example a canvas or a video player. The guide shows a frame with rulers in the target size. Move the frame over the area with the mouse or the arrow keys, then resize the window by hand until the area fills the frame. For a whole window, each edge of the frame turns green when it matches, and **Snap** moves the window into the frame.
+
+Esc hides the guide, and ⌃⌥G shows and hides it from any app. You can change the shortcuts in Settings › Shortcuts.
 
 ## Why the Accessibility permission?
 
