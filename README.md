@@ -3,7 +3,7 @@
 <p align="center">Resize any Mac window to an exact size or ratio.<br>For screenshots, screen recordings and demos that must have a fixed size.</p>
 
 <p align="center">
-  <a href="https://github.com/zirkelc/16to9/releases/latest"><b>Download for macOS</b></a> · macOS 14 or later · Free and open source
+  <a href="https://github.com/zirkelc/16to9/releases/latest"><b>Download for macOS</b></a> - macOS 14 or later - Free and open source
 </p>
 
 <p align="center"><img src="assets/hero.png" width="860" alt="16to9 shows a guide frame with rulers around a window"></p>
@@ -30,7 +30,7 @@ The app is signed with a Developer ID, notarized by Apple, and updates itself wi
 
 Click the 16to9 icon in the menu bar. Select **Resize window** or **Show guide**, then select a preset, or type a size such as `1280x720` or a ratio such as `16:9` and press Return.
 
-<!-- Demo video: drop assets/demo.mp4 here in the GitHub editor. -->
+https://github.com/user-attachments/assets/ad75ee62-d4e0-408d-b187-e5bd97ae17c4
 
 While the guide shows, the arrow keys move the frame (with ⇧ by 10 px) and Esc hides it. ⌃⌥G shows and hides the guide from any app. You can change the shortcuts in Settings › Shortcuts.
 
