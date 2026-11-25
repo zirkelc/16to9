@@ -29,7 +29,11 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
       }
     #endif
 
-    if !model.settings.hasSeenOnboarding {
+    let version = info?["CFBundleVersion"] as? String ?? ""
+    let showsTour = TourPolicy.showsAtLaunch(
+      isPermissionGranted: model.permission.isGranted, lastTourVersion: model.settings.lastTourVersion, currentVersion: version)
+    if showsTour {
+      model.settings.lastTourVersion = version
       onboardingWindow.show(.welcome)
     }
   }

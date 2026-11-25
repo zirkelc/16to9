@@ -72,7 +72,6 @@ final class OnboardingWindowController: NSWindowController, NSWindowDelegate {
 
   // Shows the full tour, or only the permission step.
   func show(_ step: OnboardingFlow.Step = .welcome) {
-    model.settings.hasSeenOnboarding = true
     model.permission.refresh()
     model.permission.startWatching()
     flow.isPermissionOnly = step == .permission

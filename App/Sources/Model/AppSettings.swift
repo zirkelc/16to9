@@ -103,7 +103,8 @@ final class AppSettings {
   var showsSizePreview: Bool { didSet { defaults.set(showsSizePreview, forKey: Key.showsSizePreview) } }
   var collapsedGroups: Set<String> { didSet { defaults.set(Array(collapsedGroups), forKey: Key.collapsedGroups) } }
   var gridTab: String { didSet { defaults.set(gridTab, forKey: Key.gridTab) } }
-  var hasSeenOnboarding: Bool { didSet { defaults.set(hasSeenOnboarding, forKey: Key.hasSeenOnboarding) } }
+  // The build number of the version that last showed the tour at launch.
+  var lastTourVersion: String? { didSet { defaults.set(lastTourVersion, forKey: Key.lastTourVersion) } }
   var lastGuidePresetID: String? { didSet { defaults.set(lastGuidePresetID, forKey: Key.lastGuidePresetID) } }
 
   var presets: PresetLibrary {
@@ -133,7 +134,7 @@ final class AppSettings {
     let collapsed = defaults.stringArray(forKey: Key.collapsedGroups)
     collapsedGroups = Set(collapsed ?? [PresetGroup.ratios, .screens, .appStore].map(\.rawValue))
     gridTab = defaults.string(forKey: Key.gridTab) ?? "favorites"
-    hasSeenOnboarding = defaults.bool(forKey: Key.hasSeenOnboarding)
+    lastTourVersion = defaults.string(forKey: Key.lastTourVersion)
     lastGuidePresetID = defaults.string(forKey: Key.lastGuidePresetID)
 
     var preferences = PresetPreferences()
@@ -170,7 +171,7 @@ final class AppSettings {
     static let showsSizePreview = "showsSizePreview"
     static let collapsedGroups = "collapsedGroups"
     static let gridTab = "gridTab"
-    static let hasSeenOnboarding = "hasSeenOnboarding"
+    static let lastTourVersion = "lastTourVersion"
     static let lastGuidePresetID = "lastGuidePresetID"
     static let presetPreferences = "presetPreferences"
   }
