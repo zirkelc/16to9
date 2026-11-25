@@ -23,7 +23,7 @@ struct IconTile: View {
   var body: some View {
     RoundedRectangle(cornerRadius: size * 0.27, style: .continuous)
       .fill(LinearGradient(colors: tint.colors, startPoint: .top, endPoint: .bottom))
-      .overlay(RoundedRectangle(cornerRadius: size * 0.27, style: .continuous).strokeBorder(.white.opacity(0.18), lineWidth: 0.5))
+      .hairlineBorder(RoundedRectangle(cornerRadius: size * 0.27, style: .continuous), .white.opacity(0.18))
       .overlay(
         Image(systemName: symbol)
           .font(.system(size: size * 0.55, weight: .semibold))

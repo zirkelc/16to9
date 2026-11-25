@@ -178,6 +178,6 @@ struct PermissionCallout: View {
     }
     .padding(12)
     .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.orange.opacity(0.12)))
-    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Color.orange.opacity(0.35), lineWidth: 0.5))
+    .hairlineBorder(RoundedRectangle(cornerRadius: 10, style: .continuous), Color.orange.opacity(0.35))
   }
 }

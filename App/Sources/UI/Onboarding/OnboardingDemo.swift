@@ -94,7 +94,7 @@ private struct DemoFrame: View {
     }
     .aspectRatio(Self.space.width / Self.space.height, contentMode: .fit)
     .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-    .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
+    .hairlineBorder(RoundedRectangle(cornerRadius: 12, style: .continuous), .white.opacity(0.12))
   }
 
   private var windowView: some View {
@@ -220,7 +220,7 @@ private struct DemoFrame: View {
     .padding(4)
     .frame(width: 180)
     .background(RoundedRectangle(cornerRadius: 8).fill(Color(white: 0.16).opacity(0.97)))
-    .overlay(RoundedRectangle(cornerRadius: 8).strokeBorder(.white.opacity(0.15), lineWidth: 0.5))
+    .hairlineBorder(RoundedRectangle(cornerRadius: 8), .white.opacity(0.15))
     .shadow(color: .black.opacity(0.45), radius: 10, y: 5)
   }
 

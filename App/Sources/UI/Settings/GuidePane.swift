@@ -23,7 +23,7 @@ struct GuidePane: View {
                 Circle()
                   .fill(color.color)
                   .frame(width: 18, height: 18)
-                  .overlay(Circle().strokeBorder(.black.opacity(0.15), lineWidth: 0.5))
+                  .hairlineBorder(Circle(), .black.opacity(0.15))
                   .padding(3)
                   .overlay(Circle().strokeBorder(settings.guideColor == color ? Color.primary.opacity(0.7) : .clear, lineWidth: 1.5))
               }

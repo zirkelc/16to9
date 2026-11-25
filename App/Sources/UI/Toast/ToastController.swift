@@ -96,7 +96,7 @@ struct ToastView: View {
     .padding(.vertical, 10)
     .frame(minWidth: 220)
     .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
-    .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).strokeBorder(.white.opacity(0.12), lineWidth: 0.5))
+    .hairlineBorder(RoundedRectangle(cornerRadius: 12, style: .continuous), .white.opacity(0.12))
     .padding(16)
     .fixedSize()
   }

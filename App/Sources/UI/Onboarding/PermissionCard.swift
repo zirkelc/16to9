@@ -277,7 +277,7 @@ struct PermissionCardView: View {
     .padding(Self.padding)
     .frame(width: Self.size(rowWidth: state.rowWidth).width, height: Self.size(rowWidth: state.rowWidth).height)
     .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 16, style: .continuous))
-    .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).strokeBorder(.primary.opacity(0.1), lineWidth: 0.5))
+    .hairlineBorder(RoundedRectangle(cornerRadius: 16, style: .continuous), .primary.opacity(0.1))
     .shadow(color: .black.opacity(0.28), radius: 18, y: 8)
     .animation(.spring(duration: 0.3, bounce: 0), value: state.phase)
   }

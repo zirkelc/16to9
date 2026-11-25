@@ -137,7 +137,7 @@ struct PresetsPane: View {
     }
     .background(RoundedRectangle(cornerRadius: 10, style: .continuous).fill(Color.primary.opacity(0.05)))
     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-    .overlay(RoundedRectangle(cornerRadius: 10, style: .continuous).strokeBorder(Color.primary.opacity(0.08), lineWidth: 0.5))
+    .hairlineBorder(RoundedRectangle(cornerRadius: 10, style: .continuous), Color.primary.opacity(0.08))
     .frame(maxHeight: .infinity, alignment: .top)
   }
 
