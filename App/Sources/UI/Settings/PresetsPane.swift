@@ -147,7 +147,7 @@ struct PresetsPane: View {
       ContentUnavailableView {
         Label("No custom presets", systemImage: "plus.rectangle.on.rectangle")
       } description: {
-        Text("Add a size or ratio that you use often, for example 1400x600 for a blog header.")
+        Text("Add a size or ratio that you use often, for example `1400x600` for a blog header.")
       } actions: {
         Button("Add Preset") { isAdding = true }
       }

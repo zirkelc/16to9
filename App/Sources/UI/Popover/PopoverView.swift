@@ -277,7 +277,7 @@ struct PopoverView: View {
     let entries = searchEntries
     return Group {
       if entries.isEmpty {
-        Text("No preset found. Type a size like 1280x720 or a ratio like 4:3.")
+        Text("No preset found. Type a size like `1280x720` or a ratio like `4:3`.")
           .font(.system(size: 11.5))
           .foregroundStyle(.secondary)
           .multilineTextAlignment(.center)

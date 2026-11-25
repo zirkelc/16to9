@@ -61,7 +61,7 @@ struct GeneralPane: View {
             Text("Keep height").tag(FitMode.keepHeight)
           } label: {
             Text("Ratio fit")
-            Text("How a ratio such as 16:9 changes the window.")
+            Text("How a ratio such as `16:9` changes the window.")
           }
           Picker("After resize", selection: $settings.anchor) {
             Text("Keep top-left corner").tag(ResizeAnchor.topLeft)

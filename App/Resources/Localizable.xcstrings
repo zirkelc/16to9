@@ -224,12 +224,12 @@
         }
       }
     },
-    "Add a size or ratio that you use often, for example 1400x600 for a blog header." : {
+    "Add a size or ratio that you use often, for example `1400x600` for a blog header." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Füge eine Größe oder ein Verhältnis hinzu, das du oft brauchst, zum Beispiel 1400x600 für einen Blog-Header."
+            "value" : "Füge eine Größe oder ein Verhältnis hinzu, das du oft brauchst, zum Beispiel `1400x600` für einen Blog-Header."
           }
         }
       }
@@ -861,12 +861,12 @@
         }
       }
     },
-    "How a ratio such as 16:9 changes the window." : {
+    "How a ratio such as `16:9` changes the window." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wie ein Verhältnis wie 16:9 das Fenster ändert."
+            "value" : "Wie ein Verhältnis wie `16:9` das Fenster ändert."
           }
         }
       }
@@ -1141,12 +1141,12 @@
         }
       }
     },
-    "No preset found. Type a size like 1280x720 or a ratio like 4:3." : {
+    "No preset found. Type a size like `1280x720` or a ratio like `4:3`." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Keine Vorgabe gefunden. Gib eine Größe wie 1280x720 oder ein Verhältnis wie 4:3 ein."
+            "value" : "Keine Vorgabe gefunden. Gib eine Größe wie `1280x720` oder ein Verhältnis wie `4:3` ein."
           }
         }
       }
