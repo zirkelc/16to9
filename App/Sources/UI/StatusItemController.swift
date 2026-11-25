@@ -24,9 +24,6 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
       button.action = #selector(togglePopover)
     }
 
-    let controller = NSHostingController(rootView: PopoverView(model: model))
-    controller.sizingOptions = .preferredContentSize
-    popover.contentViewController = controller
     popover.behavior = .transient
     popover.animates = true
     popover.delegate = self
@@ -49,6 +46,13 @@ final class StatusItemController: NSObject, NSPopoverDelegate {
     }
     guard let button = item.button else { return }
     model.refreshFrontWindow()
+    /**
+     A new view for each opening starts with an empty search field that has the keyboard focus. A view that
+     stays from the last opening keeps its text and its focus, for example on a tile that the user clicked.
+     */
+    let controller = NSHostingController(rootView: PopoverView(model: model))
+    controller.sizingOptions = .preferredContentSize
+    popover.contentViewController = controller
     popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
     // The popover needs keyboard focus for the search field and the arrow keys.
     NSApp.activate()

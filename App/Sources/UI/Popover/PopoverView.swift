@@ -12,6 +12,8 @@ struct PopoverView: View {
   @State private var highlighted: String?
   // The size preview starts with the first hover or arrow key, so that it does not show each time the popover opens.
   @State private var previewActive = false
+  // The ID of the item under the pointer, or nil when the pointer is on no item that highlights.
+  @State private var hovered: String?
   @FocusState private var searchFocused: Bool
 
   private var settings: AppSettings { model.settings }
@@ -107,7 +109,7 @@ struct PopoverView: View {
           .contentShape(Rectangle())
       }
       .buttonStyle(.plain)
-      .onHover { inside in if inside { highlighted = Self.layoutButtonID } }
+      .onHover { inside in hover(Self.layoutButtonID, inside: inside) }
       .help(settings.popoverLayout == .list ? "Show as grid" : "Show as list")
       .accessibilityLabel(settings.popoverLayout == .list ? "Show as grid" : "Show as list")
     }
@@ -216,10 +218,30 @@ struct PopoverView: View {
     return .handled
   }
 
-  private func hover(_ entry: MenuEntry) {
-    previewActive = true
-    highlighted = entry.id
-    updatePreview()
+  /**
+   Highlights the item under the pointer: an entry, a tab, a group header or a button. When the pointer leaves the
+   item and goes to no other item, the highlight goes away. The short wait keeps the highlight while the pointer
+   crosses the gap between two items, so that the preview of an entry does not blink.
+   */
+  private func hover(_ id: String, inside: Bool) {
+    if inside {
+      hovered = id
+      highlighted = id
+      return
+    }
+    guard hovered == id else { return }
+    hovered = nil
+    Task {
+      try? await Task.sleep(for: .milliseconds(120))
+      if hovered == nil, highlighted == id { highlighted = nil }
+    }
+  }
+
+  // Highlights an entry under the pointer and shows its preview. The preview hides with the highlight.
+  private func hover(_ entry: MenuEntry, inside: Bool) {
+    if inside { previewActive = true }
+    hover(entry.id, inside: inside)
+    if inside { updatePreview() }
   }
 
   // Shows the frame of the highlighted entry on the screen, or hides it when no entry that can run is highlighted.
@@ -320,7 +342,7 @@ struct PopoverView: View {
       VStack(spacing: 0) {
         if !favorites.isEmpty {
           // The header cannot be clicked, so hovering it only removes the highlight from the rows.
-          SectionHeader(title: String(localized: "Favorites"), onHover: { highlighted = nil })
+          SectionHeader(title: String(localized: "Favorites"), onHover: { inside in if inside { highlighted = nil } })
           ForEach(favorites) { row($0) }
         }
         ForEach(groups, id: \.self) { group in
@@ -329,7 +351,7 @@ struct PopoverView: View {
             title: group.displayTitle,
             isCollapsed: collapsed,
             isHighlighted: highlighted == Self.headerID(group),
-            onHover: { highlighted = Self.headerID(group) },
+            onHover: { inside in hover(Self.headerID(group), inside: inside) },
             toggle: { toggle(group) }
           )
           if !collapsed {
@@ -346,7 +368,7 @@ struct PopoverView: View {
       entry: entry,
       preview: model.preview(for: entry.target),
       isHighlighted: highlighted == entry.id,
-      onHover: { hover(entry) },
+      onHover: { inside in hover(entry, inside: inside) },
       action: { perform(entry) }
     )
   }
@@ -402,7 +424,7 @@ struct PopoverView: View {
                 .contentShape(Capsule())
             }
             .buttonStyle(.plain)
-            .onHover { inside in if inside { highlighted = Self.tabID(tab.id) } }
+            .onHover { inside in hover(Self.tabID(tab.id), inside: inside) }
           }
         }
         .padding(.horizontal, 6)
@@ -416,7 +438,7 @@ struct PopoverView: View {
               entry: entry,
               preview: model.preview(for: entry.target),
               isHighlighted: highlighted == entry.id,
-              onHover: { hover(entry) },
+              onHover: { inside in hover(entry, inside: inside) },
               action: { perform(entry) }
             )
           }
@@ -465,7 +487,7 @@ struct PopoverView: View {
     .buttonStyle(.plain)
     .disabled(!isEnabled)
     .opacity(isEnabled ? 1 : 0.5)
-    .onHover { inside in if inside && isEnabled { highlighted = action.id } }
+    .onHover { inside in if isEnabled { hover(action.id, inside: inside) } }
   }
 
   private var highlightedFooterAction: FooterAction? {

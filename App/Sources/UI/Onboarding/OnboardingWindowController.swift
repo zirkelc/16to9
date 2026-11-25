@@ -47,9 +47,10 @@ final class OnboardingWindowController: NSWindowController, NSWindowDelegate {
     super.init(window: window)
     window.delegate = self
 
+    // Settings opens before the tour closes. With no window open, the app leaves the Dock and loses the focus.
     let view = OnboardingView(model: model, flow: flow, close: { [weak self] in self?.close() }, openSettings: { [weak self] in
-      self?.close()
       model.openSettings(.general)
+      self?.close()
     })
     let host = NSHostingView(rootView: view.frame(width: Self.size.width, height: Self.size.height))
     host.safeAreaRegions = []
