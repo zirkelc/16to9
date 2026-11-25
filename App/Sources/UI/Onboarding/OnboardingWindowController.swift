@@ -7,7 +7,7 @@ import SwiftUI
 @Observable
 final class OnboardingFlow {
   enum Step: Int, CaseIterable {
-    case welcome, howItWorks, permission, tryIt, tryGuide, done
+    case welcome, resizeIntro, guideIntro, permission, tryIt, tryGuide, done
   }
 
   var step = Step.welcome {
@@ -21,7 +21,7 @@ final class OnboardingFlow {
 }
 
 /**
- The tour on the first launch: welcome, a short demo, the permission, a first resize, the guide and a summary.
+ The tour: welcome, a demo of the resize and of the guide, the permission, a first resize, the guide and a summary.
  The window also opens on the permission step when the user wants to give the permission later.
  */
 final class OnboardingWindowController: NSWindowController, NSWindowDelegate {
@@ -142,7 +142,8 @@ struct OnboardingView: View {
         Group {
           switch flow.step {
           case .welcome: welcome
-          case .howItWorks: howItWorks
+          case .resizeIntro: resizeIntro
+          case .guideIntro: guideIntro
           case .permission: permission
           case .tryIt: tryIt
           case .tryGuide: tryGuide
@@ -174,25 +175,42 @@ struct OnboardingView: View {
       title("Welcome to 16to9").padding(.top, 26)
       text("Resize any window to an exact size or aspect ratio.")
       Spacer()
-      Button("Get Started") { flow.step = .howItWorks }
+      Button("Get Started") { flow.step = .resizeIntro }
         .buttonStyle(OnboardingButtonStyle(kind: .primary))
         .keyboardShortcut(.defaultAction)
     }
   }
 
-  private var howItWorks: some View {
+  private var resizeIntro: some View {
     VStack(spacing: 0) {
-      title("How 16to9 works")
-      OnboardingDemo()
-        .frame(height: 244)
+      title("Resize from the menu bar")
+      ResizeDemo()
+        .frame(height: 210)
         .padding(.top, 18)
+      text("Pick a preset, or type a size such as `1920x1080` or a ratio such as `4:5`. The front window gets this size.")
+        .padding(.top, 6)
+      Spacer()
+      Button("Continue") { flow.step = .guideIntro }
+        .buttonStyle(OnboardingButtonStyle(kind: .secondary))
+        .keyboardShortcut(.defaultAction)
+    }
+  }
+
+  private var guideIntro: some View {
+    VStack(spacing: 0) {
+      title("Fit by hand with the guide")
+      AreaDemo()
+        .frame(height: 210)
+        .padding(.top, 18)
+      text("A frame with rulers shows the exact size. Resize a window by hand until it fills the frame, or until a canvas or a video in it does.")
+        .padding(.top, 6)
       HStack(spacing: 6) {
         Text("Show the guide at any time with")
         Keycaps(labels: guideKeys)
       }
       .font(.system(size: 13))
       .foregroundStyle(.white.opacity(0.65))
-      .padding(.top, 16)
+      .padding(.top, 10)
       Spacer()
       Button("Continue") { flow.step = .permission }
         .buttonStyle(OnboardingButtonStyle(kind: .secondary))

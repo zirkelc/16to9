@@ -32,9 +32,17 @@ extension Brand {
     Text(styled(AttributedString(name), size: size))
   }
 
-  // A localized text. Each "16to9" in it has the brand style. The other characters keep the font and color of the view.
+  /**
+   A localized text. Each "16to9" in it has the brand style, and each part in code marks, such as a size, is
+   monospaced and in the primary color. The other characters keep the font and color of the view.
+   */
   static func text(_ resource: LocalizedStringResource, size: CGFloat) -> Text {
-    Text(styled(AttributedString(localized: resource), size: size))
+    var string = AttributedString(localized: resource)
+    for run in string.runs where run.inlinePresentationIntent?.contains(.code) == true {
+      string[run.range].font = .system(size: size, weight: .medium, design: .monospaced)
+      string[run.range].foregroundColor = .primary
+    }
+    return Text(styled(string, size: size))
   }
 
   // Each "16to9" in the string gets the brand font, and its "to" gets the amber color.

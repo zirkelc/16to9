@@ -154,6 +154,16 @@
         }
       }
     },
+    "A frame with rulers shows the exact size. Resize a window by hand until it fills the frame, or until a canvas or a video in it does." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Rahmen mit Linealen zeigt die genaue Größe. Passe ein Fenster von Hand an, bis es oder eine Leinwand darin den Rahmen füllt."
+          }
+        }
+      }
+    },
     "A short message with the new size and an Undo button." : {
       "localizations" : {
         "de" : {
@@ -324,12 +334,22 @@
         }
       }
     },
-    "Animation: 16to9 resizes a window to 16:9, then a guide with rulers shows a frame for the window." : {
+    "Animation: 16to9 resizes a window to 16:9 from the menu, then to 4:5 from a typed ratio." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Animation: 16to9 bringt ein Fenster auf 16:9, dann zeigen Hilfslinien mit Linealen einen Rahmen für das Fenster."
+            "value" : "Animation: 16to9 bringt ein Fenster über das Menü auf 16:9, dann über ein eingegebenes Verhältnis auf 4:5."
+          }
+        }
+      }
+    },
+    "Animation: a guide with rulers shows a frame, and a window is resized by hand until a canvas in it fills the frame." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Animation: Hilfslinien mit Linealen zeigen einen Rahmen, und ein Fenster wird von Hand angepasst, bis eine Leinwand darin den Rahmen füllt."
           }
         }
       }
@@ -700,6 +720,16 @@
         }
       }
     },
+    "Fit by hand with the guide" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Von Hand ausrichten mit den Hilfslinien"
+          }
+        }
+      }
+    },
     "Free space: %@" : {
       "localizations" : {
         "de" : {
@@ -827,16 +857,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hilfslinien in Bildschirmfotos ausblenden"
-          }
-        }
-      }
-    },
-    "How 16to9 works" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "So funktioniert 16to9"
           }
         }
       }
@@ -1201,16 +1221,6 @@
         }
       }
     },
-    "Or show a guide with rulers, and fit the window by hand." : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Oder zeige Hilfslinien mit Linealen und richte das Fenster von Hand aus."
-          }
-        }
-      }
-    },
     "Other apps do not get these keys while the guide shows." : {
       "localizations" : {
         "de" : {
@@ -1221,12 +1231,12 @@
         }
       }
     },
-    "Pick a size or ratio in the menu bar. 16to9 resizes the front window." : {
+    "Pick a preset, or type a size such as `1920x1080` or a ratio such as `4:5`. The front window gets this size." : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wähle in der Menüleiste eine Größe oder ein Verhältnis. 16to9 passt das vordere Fenster an."
+            "value" : "Wähle eine Vorgabe oder gib eine Größe wie `1920x1080` oder ein Verhältnis wie `4:5` ein. Das vordere Fenster bekommt diese Größe."
           }
         }
       }
@@ -1420,6 +1430,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Bring jedes Fenster auf eine genaue Größe oder ein Seitenverhältnis."
+          }
+        }
+      }
+    },
+    "Resize from the menu bar" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größe über die Menüleiste ändern"
           }
         }
       }
@@ -1690,6 +1710,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Größe"
+          }
+        }
+      }
+    },
+    "Size or ratio" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Größe oder Verhältnis"
           }
         }
       }
