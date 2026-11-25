@@ -45,6 +45,8 @@ final class PermissionCardController {
   func show(preview: Bool = false) {
     close(animated: false)
     isPreview = preview
+    retryHintAt = nil
+    state.showsRetryHint = false
     permission.refresh()
     guard !permission.isGranted || preview else { return onGranted() }
     NSWorkspace.shared.open(Self.settingsURL)
@@ -159,7 +161,13 @@ final class PermissionCardController {
       if count < wait.peakWindows || Date() > wait.deadline {
         dropWait = nil
         state.phase = .instruction
+        retryHintAt = Date().addingTimeInterval(2)
       }
+    }
+    // macOS can take a short time to report the permission after the password dialog closes.
+    if let hintAt = retryHintAt, Date() > hintAt {
+      retryHintAt = nil
+      state.showsRetryHint = true
     }
 
     let front = NSWorkspace.shared.frontmostApplication
@@ -180,8 +188,15 @@ final class PermissionCardController {
   }
 
   private var isFading = false
+  /**
+   When a drop ends without the permission, the list usually has an old entry for 16to9, for example from an app
+   that was moved or signed by another developer. macOS keeps the old entry, so the card then asks the user to
+   remove it and add the app again.
+   */
+  private var retryHintAt: Date?
 
   private func dropped() {
+    retryHintAt = nil
     state.phase = .waiting
     dropWait = (Date().addingTimeInterval(10), SettingsWindow.count())
     permission.refresh()
@@ -253,6 +268,8 @@ final class PermissionCardState {
   var rowWidth: CGFloat = 400
   var isDragging = false
   var isHovering = false
+  // A drop ended without the permission.
+  var showsRetryHint = false
   @ObservationIgnored var onClose: () -> Void = {}
   @ObservationIgnored var onDrop: () -> Void = {}
 }
@@ -297,6 +314,7 @@ struct PermissionCardView: View {
 
       Group {
         switch state.phase {
+        case .instruction where state.showsRetryHint: Brand.text("Still off? Remove 16to9 with −, then drag it in again.", size: 13)
         case .instruction: Brand.text("Drag 16to9 into the list to allow window control.", size: 13)
         case .waiting: Text("Waiting for macOS…")
         case .granted: Brand.text("16to9 is allowed.", size: 13)

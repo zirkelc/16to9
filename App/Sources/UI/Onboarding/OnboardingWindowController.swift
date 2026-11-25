@@ -79,7 +79,12 @@ final class OnboardingWindowController: NSWindowController, NSWindowDelegate {
     flow.result = nil
     flow.step = step
     NSApp.setActivationPolicy(.regular)
-    NSApp.activate()
+    /**
+     At the first launch, the dialog of macOS for an app from the internet or another app can be in front. A plain
+     activation is only a request that macOS refuses then, and the tour opens behind the other windows. This
+     activation does not ask the front app.
+     */
+    NSApp.activate(ignoringOtherApps: true)
     if window?.isVisible != true { window?.center() }
     showWindow(nil)
     window?.makeKeyAndOrderFront(nil)
@@ -88,7 +93,8 @@ final class OnboardingWindowController: NSWindowController, NSWindowDelegate {
   // Brings the window back after the user gave the permission, if it is still open.
   func showAgainIfOpen() {
     guard window?.isVisible == true else { return }
-    NSApp.activate()
+    // System Settings is in front at this time, so a plain activation would be refused.
+    NSApp.activate(ignoringOtherApps: true)
     window?.makeKeyAndOrderFront(nil)
   }
 

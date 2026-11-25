@@ -1764,6 +1764,16 @@
         }
       }
     },
+    "Still off? Remove 16to9 with −, then drag it in again." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Noch aus? Entferne 16to9 mit − und ziehe es erneut hinein."
+          }
+        }
+      }
+    },
     "Support" : {
       "localizations" : {
         "de" : {
