@@ -17,6 +17,8 @@
 # - RELEASE_DIR: keeps all earlier releases, which Sparkle needs for delta updates
 #   (default ~/.local/share/16to9-release). It is not in build/, because a clean would delete it.
 #
+# Optional: release-notes/<version>.html, an HTML fragment that the Sparkle update window shows.
+#
 # The apps read the feed from https://github.com/zirkelc/16to9/releases/latest/download/appcast.xml, so each release
 # has the feed as a file. The release is a draft until all files are up, because "latest" must not point to a
 # release that has no feed yet.
@@ -75,6 +77,11 @@ xcodebuild -exportArchive -archivePath "$out/16to9.xcarchive" -exportPath "$out/
   -exportOptionsPlist "$out/ExportOptions.plist" -quiet
 app="$out/export/16to9.app"
 
+if [[ ! -x $sparkle_bin/generate_appcast ]]; then
+  echo "error: the Sparkle tools are not in $sparkle_bin" >&2
+  exit 1
+fi
+
 if [[ -z $(/usr/libexec/PlistBuddy -c "Print :SUPublicEDKey" "$app/Contents/Info.plist" 2>/dev/null) ]]; then
   echo "warning: SPARKLE_PUBLIC_KEY is empty, so this build cannot install updates"
 fi
@@ -83,22 +90,65 @@ echo "→ Notarize the app"
 ditto -c -k --keepParent "$app" "$out/16to9-notarize.zip"
 xcrun notarytool submit "$out/16to9-notarize.zip" --keychain-profile "$notary_profile" --wait
 xcrun stapler staple "$app"
+xcrun stapler validate "$app"
 
 echo "→ Make the DMG"
 dmg="$updates/16to9-$version.dmg"
-staging="$out/dmg"
-mkdir -p "$staging"
-ditto "$app" "$staging/16to9.app"
-ln -sfn /Applications "$staging/Applications"
-hdiutil create -volname "16to9" -srcfolder "$staging" -format UDZO -ov "$dmg" -quiet
+# A read-write image first, so that Finder can store the window layout in it. It has extra space for these settings.
+rw="$out/16to9-rw.dmg"
+size_kb=$(( $(du -sk "$app" | cut -f1) + 20000 ))
+hdiutil create -size "${size_kb}k" -fs HFS+ -volname "16to9" -ov "$rw" -quiet
+mount=$(hdiutil attach "$rw" -nobrowse -noautoopen | grep -oE '/Volumes/.*$' | tail -1)
+# A mount that stays blocks the volume name for the next run.
+trap 'hdiutil detach "$mount" -quiet 2>/dev/null || true' EXIT
+ditto "$app" "$mount/16to9.app"
+ln -s /Applications "$mount/Applications"
+# Only Finder can write the window layout. Without the permission to control Finder, the DMG opens in the default view.
+osascript <<APPLESCRIPT >/dev/null 2>&1 || echo "warning: Finder did not set the window layout of the DMG"
+tell application "Finder"
+  tell disk "$(basename "$mount")"
+    open
+    set current view of container window to icon view
+    set toolbar visible of container window to false
+    set statusbar visible of container window to false
+    set the bounds of container window to {240, 160, 840, 520}
+    set viewOptions to the icon view options of container window
+    set arrangement of viewOptions to not arranged
+    set icon size of viewOptions to 128
+    set text size of viewOptions to 13
+    set position of item "16to9.app" of container window to {150, 170}
+    set position of item "Applications" of container window to {450, 170}
+    update without registering applications
+    delay 1
+    close
+  end tell
+end tell
+APPLESCRIPT
+# The volume icon goes in after the layout, because Finder removes it when it writes the folder settings.
+if [[ -f $app/Contents/Resources/AppIcon.icns ]]; then
+  cp "$app/Contents/Resources/AppIcon.icns" "$mount/.VolumeIcon.icns"
+  SetFile -a C "$mount" 2>/dev/null || echo "warning: the DMG has no volume icon"
+fi
+sync
+hdiutil detach "$mount" -quiet
+trap - EXIT
+hdiutil convert "$rw" -format UDZO -imagekey zlib-level=9 -ov -o "$dmg" -quiet
 codesign --sign "$identity" --timestamp "$dmg"
 
 echo "→ Notarize the DMG"
 xcrun notarytool submit "$dmg" --keychain-profile "$notary_profile" --wait
 xcrun stapler staple "$dmg"
+xcrun stapler validate "$dmg"
 spctl --assess --type open --context context:primary-signature --verbose "$dmg"
 
 echo "→ Update the Sparkle feed"
+# The update window shows the notes of the file with the name of the DMG. Without it, the window has no text.
+notes="$root/release-notes/$version.html"
+if [[ -f $notes ]]; then
+  cp "$notes" "$updates/16to9-$version.html"
+else
+  echo "warning: no release notes in release-notes/$version.html, so the update window shows no text"
+fi
 # The feed keeps only the newest version, because the files of each version are in their own GitHub release and
 # the download prefix is correct only for this one.
 "$sparkle_bin/generate_appcast" --download-url-prefix "https://github.com/$repo/releases/download/$tag/" \
